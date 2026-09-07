@@ -250,6 +250,9 @@
             transition: opacity 0.2s;
             box-sizing: border-box;
             margin-top: 15px;
+            border: none;
+            cursor: pointer;
+            font-size: 1em;
         }
 
         .btn-action:hover {
@@ -257,7 +260,7 @@
         }
 
         /* ==========================================================
-           5. STYLE DE LA FENÊTRE MODALE (GALERIE INTERACTIVE)
+           5. STYLES DES FENÊTRES MODALES (FORMULAIRE & GALERIE)
            ================================================---------- */
         .modal {
             display: none;
@@ -280,10 +283,14 @@
             padding: 30px;
             border: 1px solid var(--border-color);
             width: 100%;
-            max-width: 900px;
+            max-width: 600px;
             border-radius: 12px;
             position: relative;
             box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+        }
+
+        .modal-content.wide {
+            max-width: 900px;
         }
 
         .close-modal {
@@ -299,6 +306,64 @@
 
         .close-modal:hover {
             color: var(--accent-red);
+        }
+
+        /* Style du Formulaire de Commande */
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: var(--text-main);
+            font-weight: bold;
+        }
+
+        .form-group input, .form-group select, .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            background: #151515;
+            border: 1px solid var(--border-color);
+            color: white;
+            border-radius: 6px;
+            box-sizing: border-box;
+            font-size: 1em;
+            font-family: inherit;
+        }
+
+        .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+            outline: none;
+            border-color: var(--accent-yellow);
+        }
+
+        .form-notice {
+            background: rgba(241, 196, 15, 0.08);
+            border-left: 4px solid var(--accent-yellow);
+            padding: 12px;
+            margin-bottom: 20px;
+            font-size: 0.9em;
+            color: var(--text-muted);
+            border-radius: 0 6px 6px 0;
+            line-height: 1.4;
+        }
+
+        .checkbox-group {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            margin-bottom: 20px;
+            font-size: 0.9em;
+            color: var(--text-main);
+            cursor: pointer;
+        }
+
+        .checkbox-group input {
+            margin-top: 3px;
+            cursor: pointer;
+            width: 18px;
+            height: 18px;
+            accent-color: var(--accent-red);
         }
 
         .modal-gallery {
@@ -382,7 +447,7 @@
                     <li class="price-item"><span>Flocage Personnalisé</span><span class="price-value">3.700 €</span></li>
                     <li class="price-item"><span>Flocage Unique (1 ex. en ville)</span><span class="price-value">15.000 €</span></li>
                 </ul>
-                <a href="mailto:info@b-design.com?subject=Devis Tarifs Particuliers" class="btn-action">Commander / Devis</a>
+                <button class="btn-action" onclick="openOrderModal('Tarifs Particuliers', ['Flocage Catalogue (2.900 €)', 'Flocage Personnalisé (3.700 €)', 'Flocage Unique - 1 ex. en ville (15.000 €)'])">Commander / Devis</button>
             </div>
 
             <!-- Carte Tarif Entreprises -->
@@ -396,7 +461,7 @@
                     <li class="price-item"><span>Affiche Publicitaire (793x1983)</span><span class="price-value">1.300 €</span></li>
                     <li class="price-item"><span>Affiche Publicitaire (1920x1080)</span><span class="price-value">1.500 €</span></li>
                 </ul>
-                <a href="mailto:info@b-design.com?subject=Devis Tarifs Entreprises" class="btn-action">Commander / Devis</a>
+                <button class="btn-action" onclick="openOrderModal('Tarifs Entreprises', ['Flocage Catalogue (2.700 €)', 'Flocage Personnalisé (3.500 €)', 'Création de logo (1.000 €)', 'Affiche Publicitaire 793x1983 (1.300 €)', 'Affiche Publicitaire 1920x1080 (1.500 €)'])">Commander / Devis</button>
             </div>
 
             <!-- Carte Tarif Service Public -->
@@ -409,7 +474,7 @@
                     <li class="price-item"><span>Affiche Publicitaire (793x1983)</span><span class="price-value">1.100 €</span></li>
                     <li class="price-item"><span>Affiche Publicitaire (1920x1080)</span><span class="price-value">1.300 €</span></li>
                 </ul>
-                <a href="mailto:info@b-design.com?subject=Devis Tarifs Service Public" class="btn-action">Commander / Devis</a>
+                <button class="btn-action" onclick="openOrderModal('Tarifs Service Public', ['Flocage Catalogue (2.500 €)', 'Flocage Personnalisé (3.300 €)', 'Affiche Publicitaire 793x1983 (1.100 €)', 'Affiche Publicitaire 1920x1080 (1.300 €)'])">Commander / Devis</button>
             </div>
 
         </div>
@@ -567,7 +632,7 @@
                         <li>Carburant : Diesel</li>
                         <li>Boîte : Automatique</li>
                     </ul>
-                    <a href="mailto:info@b-design.com?subject=Intéressé par la BMW Série 3" class="btn-action">Réserver / Contacter</a>
+                    <a href="mailto:info@b-design.com?subject=Intéressé par la BMW Série 3" class="btn-action" style="text-decoration: none;">Réserver / Contacter</a>
                 </div>
             </div>
 
@@ -583,7 +648,7 @@
                         <li>Carburant : Hybride</li>
                         <li>Boîte : Automatique</li>
                     </ul>
-                    <a href="mailto:info@b-design.com?subject=Intéressé par l'Audi Q5" class="btn-action">Réserver / Contacter</a>
+                    <a href="mailto:info@b-design.com?subject=Intéressé par l'Audi Q5" class="btn-action" style="text-decoration: none;">Réserver / Contacter</a>
                 </div>
             </div>
 
@@ -591,10 +656,64 @@
     </div>
 
     <!-- ==========================================================
-       10. FENÊTRE MODALE (GALERIE INTERACTIVE - NE PAS MODIFIER)
+       10. FENÊTRE MODALE : FORMULAIRE DE COMMANDE / DEVIS
+       ================================================---------- -->
+    <div id="orderModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeOrderModal()">&times;</span>
+            <h2 id="orderModalTitle" style="color: #fff; margin-top: 0; border-left: 4px solid var(--accent-yellow); padding-left: 10px;">Formulaire de Devis</h2>
+            
+            <form id="discordForm" onsubmit="sendToDiscord(event)">
+                <div class="form-group">
+                    <label for="typeDemande">Type de demande :</label>
+                    <select id="typeDemande" required>
+                        <!-- Options injectées dynamiquement -->
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="nom">Nom :</label>
+                    <input type="text" id="nom" required placeholder="Votre nom">
+                </div>
+                <div class="form-group">
+                    <label for="prenom">Prénom :</label>
+                    <input type="text" id="prenom" required placeholder="Votre prénom">
+                </div>
+                <div class="form-group">
+                    <label for="telephone">Numéro de téléphone :</label>
+                    <input type="tel" id="telephone" required placeholder="06 XX XX XX XX">
+                </div>
+                <div class="form-group">
+                    <label for="disponibilite">Disponibilité :</label>
+                    <input type="text" id="disponibilite" required placeholder="Ex: Tous les jours à partir de 18h">
+                </div>
+                <div class="form-group">
+                    <label for="commentaire">Commentaire / Précisions (facultatif) :</label>
+                    <textarea id="commentaire" rows="3" placeholder="Informations complémentaires, détails sur votre projet..."></textarea>
+                </div>
+
+                <!-- Remarque importante -->
+                <div class="form-notice">
+                    📌 <strong>Remarque importante :</strong> Lorsque la commande aura été effectuée, le véhicule devra être déposé au garage le temps de la mise en peinture, et la prestation devra être payée à l'avance.
+                </div>
+
+                <!-- Case à cocher obligatoire -->
+                <div class="checkbox-group">
+                    <input type="checkbox" id="acceptNotice" required>
+                    <label for="acceptNotice" style="cursor: pointer; font-weight: normal;">
+                        J'accepte que le véhicule soit déposé au garage pour la mise en peinture et que le paiement soit effectué à l'avance.
+                    </label>
+                </div>
+
+                <button type="submit" class="btn-action">Envoyer la demande</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- ==========================================================
+       11. FENÊTRE MODALE : GALERIE INTERACTIVE
        ================================================---------- -->
     <div id="galleryModal" class="modal">
-        <div class="modal-content">
+        <div class="modal-content wide">
             <span class="close-modal" onclick="closeGallery()">&times;</span>
             <h2 id="modalTitle" style="color: #fff; margin-top: 0; border-left: 4px solid var(--accent-yellow); padding-left: 10px;">Déclinaisons</h2>
             <div id="modalGalleryContainer" class="modal-gallery"></div>
@@ -602,7 +721,7 @@
     </div>
 
     <!-- ==========================================================
-       11. PIED DE PAGE (FOOTER)
+       12. PIED DE PAGE (FOOTER)
        ================================================---------- -->
     <footer>
         <p>Contact : 06 44 57 61 51 | Email : info@b-design.com | Site : www.b-design.com</p>
@@ -610,9 +729,14 @@
     </footer>
 
     <!-- ==========================================================
-       12. SCRIPTS JAVASCRIPT (GESTION DES ONGLETS ET DE LA GALERIE)
+       13. SCRIPTS JAVASCRIPT (ONGLETS, FORMULAIRE ET DISCORD WEBHOOK)
        ================================================---------- -->
     <script>
+        // URL de votre Webhook Discord configurée
+        const DISCORD_WEBHOOK_URL = "https://discord.com/api/webhooks/1546551076453486724/uuQRqs903xLpEhc1BPTbif6ZrWEyVemeWGdihViQweXtYAeuq7PjIv3FUFx-BzTHkruj";
+
+        let selectedCategory = "";
+
         // Fonction pour changer d'onglet
         function switchTab(tabId, event) {
             document.querySelectorAll('.section-content').forEach(section => {
@@ -623,6 +747,93 @@
             });
             document.getElementById(tabId).classList.add('active');
             event.currentTarget.classList.add('active');
+        }
+
+        // Ouvrir le formulaire de devis avec les options spécifiques de la catégorie
+        function openOrderModal(categoryName, optionsArray) {
+            selectedCategory = categoryName;
+            document.getElementById('orderModalTitle').innerText = "Demande : " + categoryName;
+            
+            const selectElement = document.getElementById('typeDemande');
+            selectElement.innerHTML = ""; // Vider les anciennes options
+            
+            optionsArray.forEach(optionText => {
+                const opt = document.createElement('option');
+                opt.value = optionText;
+                opt.textContent = optionText;
+                selectElement.appendChild(opt);
+            });
+
+            document.getElementById('orderModal').style.display = "block";
+        }
+
+        // Fermer le formulaire de devis
+        function closeOrderModal() {
+            document.getElementById('orderModal').style.display = "none";
+        }
+
+        // Envoyer les données au Webhook Discord en format Embed
+        function sendToDiscord(event) {
+            event.preventDefault();
+
+            // Vérification de la case à cocher (sécurité supplémentaire)
+            const acceptNotice = document.getElementById('acceptNotice').checked;
+            if (!acceptNotice) {
+                alert("Vous devez accepter les conditions pour envoyer le formulaire.");
+                return;
+            }
+
+            const typeDemande = document.getElementById('typeDemande').value;
+            const nom = document.getElementById('nom').value;
+            const prenom = document.getElementById('prenom').value;
+            const telephone = document.getElementById('telephone').value;
+            const disponibilite = document.getElementById('disponibilite').value;
+            const commentaire = document.getElementById('commentaire').value || "Aucun commentaire";
+
+            // Construction du format Embed de Discord
+            const embedData = {
+                username: "B-Design - Bot Devis",
+                embeds: [{
+                    title: "📋 Nouvelle Demande de Devis / Commande",
+                    color: 15844367, // Couleur jaune/dorée
+                    fields: [
+                        { name: "🎯 Catégorie", value: selectedCategory, inline: false },
+                        { name: "📌 Type de demande", value: typeDemande, inline: false },
+                        { name: "👤 Nom", value: nom, inline: true },
+                        { name: "👤 Prénom", value: prenom, inline: true },
+                        { name: "📞 Téléphone", value: telephone, inline: true },
+                        { name: "⏰ Disponibilité", value: disponibilite, inline: false },
+                        { name: "💬 Commentaire / Précisions", value: commentaire, inline: false },
+                        { name: "✅ Conditions acceptées", value: "Oui (Dépôt garage & Paiement anticipé)", inline: false }
+                    ],
+                    footer: {
+                        text: "Rappel : Dépôt au garage pour mise en peinture & paiement anticipé requis."
+                    },
+                    timestamp: new Date().toISOString()
+                }]
+            };
+
+            // Envoi de la requête vers l'API Discord
+            fetch(DISCORD_WEBHOOK_URL, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(embedData)
+            })
+            .then(response => {
+                if (response.ok) {
+                    alert("Votre demande a bien été envoyée avec succès !");
+                    closeOrderModal();
+                    document.getElementById('discordForm').reset();
+                } else {
+                    alert("Erreur lors de l'envoi. Veuillez vérifier l'URL du Webhook.");
+                }
+            })
+            .catch(error => {
+                console.error('Erreur:', error);
+                alert("Une erreur est survenue lors de la communication avec Discord.");
+            });
         }
 
         // Fonction pour ouvrir la galerie des véhicules du catalogue B-Design
@@ -639,7 +850,7 @@
                     <div style="padding: 10px;">
                         <h4>${item.title}</h4>
                         <p>${item.price}</p>
-                        <a href="mailto:info@b-design.com?subject=Intéressé par ${item.title} sur ${vehicleName}" class="btn-action" style="margin-top: 5px; padding: 8px;">Commander ce modèle</a>
+                        <a href="mailto:info@b-design.com?subject=Intéressé par ${item.title} sur ${vehicleName}" class="btn-action" style="margin-top: 5px; padding: 8px; text-decoration: none;">Commander ce modèle</a>
                     </div>
                 `;
                 container.appendChild(card);
@@ -653,11 +864,15 @@
             document.getElementById('galleryModal').style.display = "none";
         }
 
-        // Fermer la modale si on clique à l'extérieur de la fenêtre
+        // Fermer les modales si on clique à l'extérieur
         window.onclick = function(event) {
-            const modal = document.getElementById('galleryModal');
-            if (event.target == modal) {
-                modal.style.display = "none";
+            const orderModal = document.getElementById('orderModal');
+            const galleryModal = document.getElementById('galleryModal');
+            if (event.target == orderModal) {
+                orderModal.style.display = "none";
+            }
+            if (event.target == galleryModal) {
+                galleryModal.style.display = "none";
             }
         }
     </script>
