@@ -940,6 +940,18 @@
             border-radius: 2px;
             box-shadow: 0 1px 3px rgba(0,0,0,0.5);
         }
+
+        .footer-cgv-link {
+            color: var(--accent-blue);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.2s ease;
+        }
+
+        .footer-cgv-link:hover {
+            color: #5dade2;
+            text-decoration: underline;
+        }
     </style>
 </head>
 <body>
@@ -982,7 +994,6 @@
         <button id="btn-bdesign" class="tab-btn" onclick="switchTab('bdesign', event)">✨ Catalogue B-Design</button>
         <button id="btn-vehicules" class="tab-btn" onclick="switchTab('vehicules', event)">🚗 Catalogue Occassions</button>
         <button id="btn-faq" class="tab-btn" onclick="switchTab('faq', event)">❓ FAQ</button>
-        <button id="btn-cgv" class="tab-btn" onclick="switchTab('cgv', event)">📄 Conditions Générales</button>
     </div>
 
     <!-- Ligne séparatrice aux couleurs de la Belgique -->
@@ -1086,7 +1097,7 @@
 
         </div>
 
-        <!-- Carrousel d'images défilant (avec auto5.png intégré) -->
+        <!-- Carrousel d'images défilant -->
         <div class="slider-container">
             <h3 class="slider-title">Aperçu de nos réalisations</h3>
             <div class="slider-track-wrapper">
@@ -1126,13 +1137,13 @@
                 </div>
             </div>
 
-            <div class="vehicle-card" onclick="openGallery('Premier', [
+            <div class="vehicle-card" onclick="openGallery('Primer', [
                 {title: 'Flocage Catalogue', price: '2.900 €', img: 'https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?auto=format&fit=crop&w=600&q=80'},
                 {title: 'Flocage Personnalisé', price: '3.700 €', img: 'https://images.unsplash.com/photo-1617814076367-b759c7d7e738?auto=format&fit=crop&w=600&q=80'}
             ])">
                 <img src="https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?auto=format&fit=crop&w=600&q=80" alt="Primer" class="vehicle-image">
                 <div class="vehicle-info">
-                    <h3 class="vehicle-title">Premier</h3>
+                    <h3 class="vehicle-title">Primer</h3>
                     <div class="vehicle-price">Déclinaisons disponibles</div>
                     <ul class="vehicle-specs"><li><span>Cliquez pour voir les styles de flocage</span></li></ul>
                     <span class="btn-action">Voir les déclinaisons</span>
@@ -1545,10 +1556,13 @@
     </div>
 
     <!-- ==========================================================
-       15. PIED DE PAGE (FOOTER) AVEC DRAPEAU BELGE
+       15. PIED DE PAGE (FOOTER) AVEC DRAPEAU BELGE ET LIEN CGV
        ================================================---------- -->
     <footer>
         <p>Contact : 06 44 57 61 51 | Email : info@b-design.com | Site : www.b-design.com</p>
+        <p style="margin: 8px 0;">
+            <a href="#cgv" class="footer-cgv-link" onclick="switchTab('cgv', null); window.scrollTo({ top: 0, behavior: 'smooth' }); return false;">Retrouver nos CGV ici</a>
+        </p>
         <div class="footer-content">
             <img src="img/flag-be-svgrepo-com.svg" alt="Drapeau Belge" class="footer-flag">
             <span>&copy; 2026 B-Design. Tous droits réservés.</span>
