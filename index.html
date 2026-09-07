@@ -116,6 +116,7 @@
             letter-spacing: 0.5px;
         }
 
+        /* Encadré de bienvenue soigné */
         .welcome-banner {
             max-width: 1050px;
             margin: 45px auto -15px auto;
@@ -348,6 +349,7 @@
             border-bottom: none;
         }
 
+        /* Cartes Tarifs */
         .pricing-card {
             background: var(--card-bg);
             border-radius: 12px;
@@ -881,7 +883,7 @@
             border-bottom: 1px solid var(--border-color);
         }
 
-        /* Overlay de confirmation temporaire */
+        /* Overlay de confirmation temporaire (3,5 secondes) */
         .success-overlay {
             display: none;
             position: fixed;
@@ -1114,16 +1116,96 @@
         </div>
     </div>
 
-    <!-- SECTION 2 : CATALOGUE B-DESIGN -->
+    <!-- SECTION 2 : CATALOGUE B-DESIGN (COMPLET AVEC 9 VÉHICULES) -->
     <div id="bdesign" class="section-content">
         <h2 class="section-title">Catalogue B-Design - Nos Réalisations</h2>
         <div class="grid">
-            <div class="vehicle-card" onclick="openGallery('Express', [{title: 'Flocage', price: '2.900 €', img: 'https://images.unsplash.com/photo-1555215695-3004980ad54e?auto=format&fit=crop&w=600&q=80'}])">
+            <div class="vehicle-card" onclick="openGallery('Express', [{title: 'Flocage Catalogue', price: '2.900 €', img: 'https://images.unsplash.com/photo-1555215695-3004980ad54e?auto=format&fit=crop&w=600&q=80'}, {title: 'Flocage Personnalisé', price: '3.700 €', img: 'https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?auto=format&fit=crop&w=600&q=80'}])">
                 <img src="https://images.unsplash.com/photo-1555215695-3004980ad54e?auto=format&fit=crop&w=600&q=80" alt="Express" class="vehicle-image">
                 <div class="vehicle-info">
                     <h3 class="vehicle-title">Express</h3>
                     <div class="vehicle-price">Déclinaisons disponibles</div>
-                    <ul class="vehicle-specs"><li><span>Cliquez pour voir les styles</span></li></ul>
+                    <ul class="vehicle-specs"><li><span>Cliquez pour voir les styles de flocage</span></li></ul>
+                    <span class="btn-action">Voir les déclinaisons</span>
+                </div>
+            </div>
+
+            <div class="vehicle-card" onclick="openGallery('Primer', [{title: 'Flocage Catalogue', price: '2.900 €', img: 'https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?auto=format&fit=crop&w=600&q=80'}, {title: 'Flocage Personnalisé', price: '3.700 €', img: 'https://images.unsplash.com/photo-1617814076367-b759c7d7e738?auto=format&fit=crop&w=600&q=80'}])">
+                <img src="https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?auto=format&fit=crop&w=600&q=80" alt="Primer" class="vehicle-image">
+                <div class="vehicle-info">
+                    <h3 class="vehicle-title">Primer</h3>
+                    <div class="vehicle-price">Déclinaisons disponibles</div>
+                    <ul class="vehicle-specs"><li><span>Cliquez pour voir les styles de flocage</span></li></ul>
+                    <span class="btn-action">Voir les déclinaisons</span>
+                </div>
+            </div>
+
+            <div class="vehicle-card" onclick="openGallery('Berlingo', [{title: 'Flocage Catalogue', price: '2.900 €', img: 'https://images.unsplash.com/photo-1617814076367-b759c7d7e738?auto=format&fit=crop&w=600&q=80'}, {title: 'Flocage Unique', price: '15.000 €', img: 'https://images.unsplash.com/photo-1555215695-3004980ad54e?auto=format&fit=crop&w=600&q=80'}])">
+                <img src="https://images.unsplash.com/photo-1617814076367-b759c7d7e738?auto=format&fit=crop&w=600&q=80" alt="Berlingo" class="vehicle-image">
+                <div class="vehicle-info">
+                    <h3 class="vehicle-title">Berlingo</h3>
+                    <div class="vehicle-price">Déclinaisons disponibles</div>
+                    <ul class="vehicle-specs"><li><span>Cliquez pour voir les styles de flocage</span></li></ul>
+                    <span class="btn-action">Voir les déclinaisons</span>
+                </div>
+            </div>
+
+            <div class="vehicle-card" onclick="openGallery('206', [{title: 'Flocage Catalogue', price: '2.900 €', img: 'https://images.unsplash.com/photo-1555215695-3004980ad54e?auto=format&fit=crop&w=600&q=80'}, {title: 'Flocage Personnalisé', price: '3.700 €', img: 'https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?auto=format&fit=crop&w=600&q=80'}])">
+                <img src="https://images.unsplash.com/photo-1555215695-3004980ad54e?auto=format&fit=crop&w=600&q=80" alt="206" class="vehicle-image">
+                <div class="vehicle-info">
+                    <h3 class="vehicle-title">206</h3>
+                    <div class="vehicle-price">Déclinaisons disponibles</div>
+                    <ul class="vehicle-specs"><li><span>Cliquez pour voir les styles de flocage</span></li></ul>
+                    <span class="btn-action">Voir les déclinaisons</span>
+                </div>
+            </div>
+
+            <div class="vehicle-card" onclick="openGallery('Golster 1981', [{title: 'Flocage Rétro Unique', price: '15.000 €', img: 'https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?auto=format&fit=crop&w=600&q=80'}])">
+                <img src="https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?auto=format&fit=crop&w=600&q=80" alt="Golster 1981" class="vehicle-image">
+                <div class="vehicle-info">
+                    <h3 class="vehicle-title">Golster 1981</h3>
+                    <div class="vehicle-price">Déclinaisons disponibles</div>
+                    <ul class="vehicle-specs"><li><span>Cliquez pour voir les styles de flocage</span></li></ul>
+                    <span class="btn-action">Voir les déclinaisons</span>
+                </div>
+            </div>
+
+            <div class="vehicle-card" onclick="openGallery('Megane IV', [{title: 'Flocage Catalogue', price: '2.900 €', img: 'https://images.unsplash.com/photo-1617814076367-b759c7d7e738?auto=format&fit=crop&w=600&q=80'}, {title: 'Flocage Personnalisé', price: '3.700 €', img: 'https://images.unsplash.com/photo-1555215695-3004980ad54e?auto=format&fit=crop&w=600&q=80'}])">
+                <img src="https://images.unsplash.com/photo-1617814076367-b759c7d7e738?auto=format&fit=crop&w=600&q=80" alt="Megane IV" class="vehicle-image">
+                <div class="vehicle-info">
+                    <h3 class="vehicle-title">Megane IV</h3>
+                    <div class="vehicle-price">Déclinaisons disponibles</div>
+                    <ul class="vehicle-specs"><li><span>Cliquez pour voir les styles de flocage</span></li></ul>
+                    <span class="btn-action">Voir les déclinaisons</span>
+                </div>
+            </div>
+
+            <div class="vehicle-card" onclick="openGallery('5008', [{title: 'Flocage Catalogue', price: '2.900 €', img: 'https://images.unsplash.com/photo-1555215695-3004980ad54e?auto=format&fit=crop&w=600&q=80'}, {title: 'Flocage Personnalisé', price: '3.700 €', img: 'https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?auto=format&fit=crop&w=600&q=80'}])">
+                <img src="https://images.unsplash.com/photo-1555215695-3004980ad54e?auto=format&fit=crop&w=600&q=80" alt="5008" class="vehicle-image">
+                <div class="vehicle-info">
+                    <h3 class="vehicle-title">5008</h3>
+                    <div class="vehicle-price">Déclinaisons disponibles</div>
+                    <ul class="vehicle-specs"><li><span>Cliquez pour voir les styles de flocage</span></li></ul>
+                    <span class="btn-action">Voir les déclinaisons</span>
+                </div>
+            </div>
+
+            <div class="vehicle-card" onclick="openGallery('Olympia', [{title: 'Flocage Catalogue', price: '2.900 €', img: 'https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?auto=format&fit=crop&w=600&q=80'}])">
+                <img src="https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?auto=format&fit=crop&w=600&q=80" alt="Olympia" class="vehicle-image">
+                <div class="vehicle-info">
+                    <h3 class="vehicle-title">Olympia</h3>
+                    <div class="vehicle-price">Déclinaisons disponibles</div>
+                    <ul class="vehicle-specs"><li><span>Cliquez pour voir les styles de flocage</span></li></ul>
+                    <span class="btn-action">Voir les déclinaisons</span>
+                </div>
+            </div>
+
+            <div class="vehicle-card" onclick="openGallery('Stellar 911', [{title: 'Flocage Unique Édition', price: '15.000 €', img: 'https://images.unsplash.com/photo-1617814076367-b759c7d7e738?auto=format&fit=crop&w=600&q=80'}])">
+                <img src="https://images.unsplash.com/photo-1617814076367-b759c7d7e738?auto=format&fit=crop&w=600&q=80" alt="Stellar 911" class="vehicle-image">
+                <div class="vehicle-info">
+                    <h3 class="vehicle-title">Stellar 911</h3>
+                    <div class="vehicle-price">Déclinaisons disponibles</div>
+                    <ul class="vehicle-specs"><li><span>Cliquez pour voir les styles de flocage</span></li></ul>
                     <span class="btn-action">Voir les déclinaisons</span>
                 </div>
             </div>
@@ -1152,21 +1234,45 @@
         </div>
     </div>
 
-    <!-- SECTION FAQ -->
+    <!-- SECTION FAQ (COMPLÈTE AVEC TOUTES LES QUESTIONS) -->
     <div id="faq" class="section-content">
         <h2 class="section-title">FAQ - Foire Aux Questions</h2>
         <div class="faq-wrapper">
             <div class="faq-item">
                 <button class="faq-question-btn" onclick="toggleFaq(this)">Comment se déroule une commande de flocage ?<span class="faq-icon">+</span></button>
-                <div class="faq-answer-container"><p>Sélectionnez votre prestation, remplissez le formulaire, puis déposez votre véhicule au garage. Le paiement s'effectue à l'avance.</p></div>
+                <div class="faq-answer-container"><p>Sélectionnez votre prestation, remplissez le formulaire de commande avec vos coordonnées et précisions, puis déposez votre véhicule au garage le temps de la mise en peinture et du flocage. Le paiement de la prestation s'effectue à l'avance.</p></div>
             </div>
             <div class="faq-item">
-                <button class="faq-question-btn" onclick="toggleFaq(this)">Le flocage personnalisé nous appartient-il ?<span class="faq-icon">+</span></button>
-                <div class="faq-answer-container"><p>Non, le flocage reste la propriété intellectuelle exclusive de B-Design.</p></div>
+                <button class="faq-question-btn" onclick="toggleFaq(this)">Lorsque nous commandons un flocage personnalisé, nous appartient-il ?<span class="faq-icon">+</span></button>
+                <div class="faq-answer-container"><p>Non, le flocage ne vous appartient pas, il reste la propriété intellectuelle exclusive de B-Design.</p></div>
             </div>
             <div class="faq-item">
-                <button class="faq-question-btn" onclick="toggleFaq(this)">Règle des 3 jours pour les véhicules d'occasion<span class="faq-icon">+</span></button>
-                <div class="faq-answer-container"><p>Toute demande d'achat engage l'acheteur à finaliser la transaction sous 3 jours, sous peine de bannissement définitif.</p></div>
+                <button class="faq-question-btn" onclick="toggleFaq(this)">Quelles sont les règles applicables lors de l'achat d'un véhicule d'occasion ?<span class="faq-icon">+</span></button>
+                <div class="faq-answer-container"><p>Toute demande d'achat d'un véhicule d'occasion engage l'acheteur à finaliser la transaction dans un délai maximal de 3 jours. En cas de non-respect de cet engagement, un bannissement définitif de la plateforme sera appliqué.</p></div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question-btn" onclick="toggleFaq(this)">Puis-je commander un design de flocage entièrement unique ?<span class="faq-icon">+</span></button>
+                <div class="faq-answer-container"><p>Tout à fait ! Nous proposons l'option "Flocage Unique" (disponible pour certains véhicules de notre catalogue) qui garantit un modèle d'exemplaire unique en ville pour un tarif spécifique de 15 000 €.</p></div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question-btn" onclick="toggleFaq(this)">Quels sont les modes de paiement acceptés pour les prestations ?<span class="faq-icon">+</span></button>
+                <div class="faq-answer-container"><p>Comme indiqué dans nos conditions générales, le règlement de la prestation doit être effectué en amont, au moment de la validation et du dépôt de votre dossier de commande auprès de notre studio.</p></div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question-btn" onclick="toggleFaq(this)">Quels sont les délais de réalisation des prestations ?<span class="faq-icon">+</span></button>
+                <div class="faq-answer-container"><p>Les délais dépendent du type de projet (flocage standard, personnalisé ou création de site web). Une fois la commande validée, nous convenons de vos disponibilités exactes pour planifier l'intervention au garage.</p></div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question-btn" onclick="toggleFaq(this)">Est-il possible de modifier un projet de design graphique en cours de route ?<span class="faq-icon">+</span></button>
+                <div class="faq-answer-container"><p>Oui, des ajustements mineurs sont possibles lors de la phase de conception. Cependant, toute modification majeure après validation du prototype initial pourra faire l'objet d'un supplément tarifaire.</p></div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question-btn" onclick="toggleFaq(this)">Que comprend le tarif de création de site web et d'hébergement ?<span class="faq-icon">+</span></button>
+                <div class="faq-answer-container"><p>La création de site web est proposée à un tarif fixe de 30 000 €. L'hébergement web professionnel est quant à lui facturé séparément sur une base mensuelle de 2 000 €.</p></div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question-btn" onclick="toggleFaq(this)">Comment sont suivies et transmises nos commandes ?<span class="faq-icon">+</span></button>
+                <div class="faq-answer-container"><p>Toutes les demandes et commandes envoyées via notre site web sont instantanément relayées sur notre canal sécurisé Discord via un système de bot automatisé pour un traitement rapide par notre équipe.</p></div>
             </div>
         </div>
     </div>
@@ -1175,14 +1281,14 @@
     <div id="cgv" class="section-content">
         <h2 class="section-title">Conditions Générales de Vente et d'Utilisation</h2>
         <div class="cgv-container">
-            <h3>1. Objet et Acceptation</h3>
-            <p>Les présentes CGV régissent l'ensemble des prestations et ventes conclues par B-Design. Toute commande implique l'acceptation entière de ces conditions.</p>
-            <h3>2. Paiement et Dépôt</h3>
-            <div class="cgv-notice-box">📌 Le paiement intégral de la prestation doit être effectué en amont et le véhicule déposé au garage pour toute intervention.</div>
-            <h3>3. Achat d'Occasion</h3>
-            <div class="cgv-alert-box">🚨 Règle des 3 jours : Paiement obligatoire sous 3 jours sous peine de bannissement définitif.</div>
-            <h3>4. Propriété Intellectuelle</h3>
-            <p>Tous les visuels et créations demeurent la propriété exclusive de B-Design. Toute reproduction non autorisée fera l'objet de poursuites judiciaires.</p>
+            <h3>1. Objet, Champ d'Application et Acceptation</h3>
+            <p>Les présentes Conditions Générales de Vente et d'Utilisation régissent l'ensemble des relations contractuelles, prestations de services et ventes conclues par le studio <strong>B-Design</strong> auprès de tout client.</p>
+            <h3>2. Processus de Commande, Dépôt et Modalités de Paiement Anticipé</h3>
+            <div class="cgv-notice-box">📌 <strong>Rappel :</strong> Le paiement intégral de la prestation commandée doit être effectué en amont, de manière strictement anticipée, avant le lancement effectif des travaux.</div>
+            <h3>3. Achat de Véhicules d'Occasion et Engagement de 3 Jours</h3>
+            <div class="cgv-alert-box">🚨 <strong>Règle des 3 jours :</strong> Toute demande d'achat engage l'acheteur à finaliser la transaction dans un délai maximal de 3 jours sous peine d'un bannissement définitif.</div>
+            <h3>4. Propriété Intellectuelle et Régime Juridique Applicable</h3>
+            <p>Tous les visuels, logos, affiches et flocages créés par B-Design demeurent l'entière propriété intellectuelle exclusive du Studio. Toute reproduction non autorisée entraînera des poursuites judiciaires rigoureuses.</p>
         </div>
     </div>
 
@@ -1200,11 +1306,11 @@
                     <label for="quantite">Quantité :</label>
                     <input type="number" id="quantite" value="1" min="1" required oninput="calculateSubtotal()">
                 </div>
-                <div class="form-group"><label for="prenom">Prénom :</label><input type="text" id="prenom" required></div>
-                <div class="form-group"><label for="nom">Nom :</label><input type="text" id="nom" required></div>
-                <div class="form-group"><label for="telephone">Téléphone :</label><input type="tel" id="telephone" required></div>
-                <div class="form-group"><label for="disponibilite">Disponibilité :</label><input type="text" id="disponibilite" required></div>
-                <div class="form-group"><label for="commentaire">Commentaire :</label><textarea id="commentaire" rows="2"></textarea></div>
+                <div class="form-group"><label for="prenom">Prénom :</label><input type="text" id="prenom" required placeholder="Votre prénom"></div>
+                <div class="form-group"><label for="nom">Nom :</label><input type="text" id="nom" required placeholder="Votre nom"></div>
+                <div class="form-group"><label for="telephone">Numéro de téléphone :</label><input type="tel" id="telephone" required placeholder="06 XX XX XX XX"></div>
+                <div class="form-group"><label for="disponibilite">Disponibilité :</label><input type="text" id="disponibilite" required placeholder="Ex: Tous les jours dès 18h"></div>
+                <div class="form-group"><label for="commentaire">Commentaire / Précisions :</label><textarea id="commentaire" rows="2" placeholder="Informations complémentaires..."></textarea></div>
                 
                 <div class="form-notice">📌 Dépôt au garage requis & paiement anticipé obligatoire.</div>
                 
@@ -1228,13 +1334,13 @@
             <span class="close-modal" onclick="closeBuyModal()">&times;</span>
             <h2 style="color: #fff; margin-top: 0; border-left: 4px solid var(--accent-yellow); padding-left: 10px;">Achat de Véhicule d'Occasion</h2>
             <form id="buyForm" onsubmit="sendBuyToDiscord(event)">
-                <div class="form-group"><label>Véhicule :</label><input type="text" id="vehiculeNom" readonly style="background:#121212; color:var(--accent-yellow); font-weight:bold;"></div>
-                <div class="form-group"><label>Plaque :</label><input type="text" id="vehiculePlaque" readonly style="background:#121212; color:var(--accent-blue); font-weight:bold;"></div>
+                <div class="form-group"><label>Véhicule sélectionné :</label><input type="text" id="vehiculeNom" readonly style="background:#121212; color:var(--accent-yellow); font-weight:bold;"></div>
+                <div class="form-group"><label>Plaque d'immatriculation :</label><input type="text" id="vehiculePlaque" readonly style="background:#121212; color:var(--accent-blue); font-weight:bold;"></div>
                 <div class="form-group"><label>Prix :</label><input type="text" id="buyPrix" readonly style="background:#121212; color:var(--accent-yellow); font-weight:bold;"></div>
-                <div class="form-group"><label>Prénom :</label><input type="text" id="buyPrenom" required></div>
-                <div class="form-group"><label>Nom :</label><input type="text" id="buyNom" required></div>
-                <div class="form-group"><label>Téléphone :</label><input type="tel" id="buyTelephone" required></div>
-                <div class="form-group"><label>Commentaire :</label><textarea id="buyCommentaire" rows="2"></textarea></div>
+                <div class="form-group"><label>Prénom :</label><input type="text" id="buyPrenom" required placeholder="Votre prénom"></div>
+                <div class="form-group"><label>Nom :</label><input type="text" id="buyNom" required placeholder="Votre nom"></div>
+                <div class="form-group"><label>Numéro de téléphone :</label><input type="tel" id="buyTelephone" required placeholder="06 XX XX XX XX"></div>
+                <div class="form-group"><label>Commentaire :</label><textarea id="buyCommentaire" rows="2" placeholder="Informations complémentaires..."></textarea></div>
                 
                 <div class="checkbox-group">
                     <input type="checkbox" id="buyAcceptNotice" required>
@@ -1254,7 +1360,7 @@
         </div>
     </div>
 
-    <!-- ÉCRAN DE SUCCÈS TEMPORAIRE (2,5 SECONDES) -->
+    <!-- ÉCRAN DE SUCCÈS TEMPORAIRE (3,5 SECONDES) -->
     <div id="successOverlay" class="success-overlay">
         <div class="success-box">
             <div class="success-icon">✔️</div>
@@ -1288,7 +1394,7 @@
         </div>
     </footer>
 
-    <!-- SCRIPTS JAVASCRIPT -->
+    <!-- SCRIPTS JAVASCRIPT (AVEC EMBEDS DISCORD STRUCTURÉS ET PROPRES) -->
     <script>
         const DISCORD_WEBHOOK_URL = "https://discord.com/api/webhooks/1546551076453486724/uuQRqs903xLpEhc1BPTbif6ZrWEyVemeWGdihViQweXtYAeuq7PjIv3FUFx-BzTHkruj";
         const DISCORD_BUY_WEBHOOK_URL = "https://discord.com/api/webhooks/1546603016617070719/ZeLcWiCWKkUPGqendCCg2___HiScM2Ps73MZT6Y2aKsHTM0Qmi2G8TD4YONi9dBnGe2i";
@@ -1331,7 +1437,7 @@
             setTimeout(() => {
                 overlay.style.display = 'none';
                 if (callback) callback();
-            }, 2500);
+            }, 3500); // 3,5 secondes
         }
 
         function openOrderModal(categoryName, optionsArray, tvaRate) {
@@ -1399,19 +1505,23 @@
             }
 
             const embedData = {
-                username: "B-Design - Bot Achat Occasion",
+                username: "B-Design • Système Occasions",
                 embeds: [{
-                    title: "🚗 Demande d'Achat - Véhicule d'Occasion",
+                    title: "🚗 Nouvelle Demande d'Achat (Véhicule d'Occasion)",
+                    description: "Un client a soumis une demande d'acquisition pour un véhicule d'occasion.",
                     color: 15158332,
                     fields: [
-                        { name: "🚘 Véhicule", value: currentBuyVehicle, inline: false },
-                        { name: "🏷️ Plaque", value: currentBuyPlaque, inline: true },
-                        { name: "💰 Prix", value: currentBuyPrice, inline: true },
-                        { name: "👤 Prénom", value: document.getElementById('buyPrenom').value, inline: true },
-                        { name: "👤 Nom", value: document.getElementById('buyNom').value, inline: true },
+                        { name: "🚘 Véhicule concerné", value: `**${currentBuyVehicle}**`, inline: false },
+                        { name: "🏷️ Plaque d'immatriculation", value: `\`${currentBuyPlaque}\``, inline: true },
+                        { name: "💰 Prix de vente", value: `**${currentBuyPrice}**`, inline: true },
+                        { name: "\u200b", value: "\u200b", inline: false },
+                        { name: "👤 Identité du client", value: `${document.getElementById('buyPrenom').value} ${document.getElementById('buyNom').value}`, inline: true },
                         { name: "📞 Téléphone", value: document.getElementById('buyTelephone').value, inline: true },
-                        { name: "💬 Commentaire", value: document.getElementById('buyCommentaire').value || "Aucun", inline: false }
+                        { name: "💬 Commentaires / Précisions", value: document.getElementById('buyCommentaire').value || "_Aucun commentaire._", inline: false }
                     ],
+                    footer: {
+                        text: "B-Design Occasions • Rappel : Règle des 3 jours applicable."
+                    },
                     timestamp: new Date().toISOString()
                 }]
             };
@@ -1445,21 +1555,24 @@
             const subtotalText = document.getElementById('subtotalDisplay').innerText;
 
             const embedData = {
-                username: "B-Design - Bot Commande",
+                username: "B-Design • Système Commandes",
                 embeds: [{
-                    title: "📋 Nouvelle Commande",
+                    title: "📋 Nouvelle Commande / Prestation",
+                    description: `Une nouvelle commande a été validée dans la catégorie **${selectedCategory}**.`,
                     color: 15844367,
                     fields: [
-                        { name: "🎯 Catégorie", value: selectedCategory, inline: false },
-                        { name: "📌 Type", value: selectedItem.name, inline: false },
-                        { name: "📊 Quantité", value: quantity, inline: true },
-                        { name: "💰 Total TTC", value: subtotalText, inline: true },
-                        { name: "👤 Prénom", value: document.getElementById('prenom').value, inline: true },
-                        { name: "👤 Nom", value: document.getElementById('nom').value, inline: true },
+                        { name: "🛠️ Prestation choisie", value: `**${selectedItem.name}**`, inline: false },
+                        { name: "📊 Quantité commandée", value: `\`${quantity}\``, inline: true },
+                        { name: "💵 Montant Total (TVA incluse)", value: `**${subtotalText}**`, inline: true },
+                        { name: "\u200b", value: "\u200b", inline: false },
+                        { name: "👤 Identité du client", value: `${document.getElementById('prenom').value} ${document.getElementById('nom').value}`, inline: true },
                         { name: "📞 Téléphone", value: document.getElementById('telephone').value, inline: true },
-                        { name: "⏰ Disponibilité", value: document.getElementById('disponibilite').value, inline: false },
-                        { name: "💬 Commentaire", value: document.getElementById('commentaire').value || "Aucun", inline: false }
+                        { name: "⏰ Disponibilités", value: document.getElementById('disponibilite').value, inline: false },
+                        { name: "💬 Commentaires / Projet", value: document.getElementById('commentaire').value || "_Aucun commentaire._", inline: false }
                     ],
+                    footer: {
+                        text: "B-Design Studio • Rappel : Dépôt atelier & paiement anticipé requis."
+                    },
                     timestamp: new Date().toISOString()
                 }]
             };
