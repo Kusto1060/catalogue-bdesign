@@ -71,56 +71,6 @@
         }
 
         /* ==========================================================
-           1.5. BADGE FLOTTANT "SITE EN DÉVELOPPEMENT" CLIGNOTANT (COTÉ GAUCHE)
-           ================================================---------- */
-        .dev-badge-flottant {
-            position: fixed;
-            left: 15px;
-            top: 40%;
-            transform: translateY(-50%);
-            z-index: 999;
-            background: rgba(20, 20, 20, 0.9);
-            border: 1px solid rgba(231, 76, 60, 0.4);
-            border-left: 4px solid var(--accent-red);
-            padding: 10px 14px;
-            border-radius: 8px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.5);
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            backdrop-filter: blur(6px);
-            max-width: 200px;
-            pointer-events: none;
-            animation: pulseBadge 2.5s infinite ease-in-out;
-        }
-
-        .dev-badge-flottant .warning-icon {
-            font-size: 1.2em;
-            color: var(--accent-red);
-        }
-
-        .dev-badge-flottant .dev-text {
-            font-size: 0.78em;
-            color: var(--text-muted);
-            line-height: 1.3;
-            font-weight: 500;
-        }
-
-        .dev-badge-flottant .dev-text strong {
-            color: var(--accent-red);
-            display: block;
-            font-size: 0.95em;
-            margin-bottom: 2px;
-            text-transform: uppercase;
-        }
-
-        @keyframes pulseBadge {
-            0% { opacity: 0.55; box-shadow: 0 5px 15px rgba(231, 76, 60, 0.2); }
-            50% { opacity: 1; box-shadow: 0 5px 25px rgba(231, 76, 60, 0.5); }
-            100% { opacity: 0.55; box-shadow: 0 5px 15px rgba(231, 76, 60, 0.2); }
-        }
-
-        /* ==========================================================
            2. EN-TÊTE (HEADER) ET NAVIGATION PAR ONGLETS
            ================================================---------- */
         header {
@@ -724,7 +674,7 @@
         }
 
         /* ==========================================================
-           5. STYLES DES FENÊTRES MODALES (FORMULAIRE & GALERIE)
+           5. STYLES DES FENÊTRES MODALES (FORMULAIRES & GALERIE)
            ================================================---------- */
         .modal {
             display: none;
@@ -772,7 +722,7 @@
             color: var(--accent-red);
         }
 
-        /* Style du Formulaire de Commande */
+        /* Style des Formulaires */
         .form-group {
             margin-bottom: 20px;
         }
@@ -913,6 +863,22 @@
             margin-top: 20px;
             font-size: 0.9em;
         }
+
+        .footer-content {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .footer-flag {
+            height: 18px;
+            width: auto;
+            vertical-align: middle;
+            border-radius: 2px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.5);
+        }
     </style>
 </head>
 <body>
@@ -921,15 +887,6 @@
     <div class="auth-buttons-container">
         <a href="#" class="auth-btn" onclick="alert('Fonctionnalité de connexion bientôt disponible !'); return false;">Connexion</a>
         <a href="#" class="auth-btn register" onclick="alert('Fonctionnalité d\'inscription bientôt disponible !'); return false;">Inscription</a>
-    </div>
-
-    <!-- Badge flottant "Site en développement" clignotant sur le côté gauche -->
-    <div class="dev-badge-flottant">
-        <span class="warning-icon">⚠️</span>
-        <div class="dev-text">
-            <strong>ATTENTION</strong>
-            Site web toujours en cours de dev
-        </div>
     </div>
 
     <!-- ==========================================================
@@ -1202,7 +1159,7 @@
         <h2 class="section-title">Catalogue Occassions</h2>
         <div class="grid">
             
-            <!-- Véhicule d'occasion (Express) -->
+            <!-- Véhicule d'occasion (Express) avec validité CT (OCT. 2026) -->
             <div class="vehicle-card">
                 <img src="https://images.unsplash.com/photo-1555215695-3004980ad54e?auto=format&fit=crop&w=600&q=80" alt="Express" class="vehicle-image">
                 <div class="vehicle-info">
@@ -1212,8 +1169,10 @@
                         <li>Kilométrage : 1 km</li>
                         <li>Carburant : Diesel</li>
                         <li>Boîte : Automatique</li>
+                        <li>Plaque : YS-256-SF</li>
+                        <li>Validité CT : 5 oct 2026</li>
                     </ul>
-                    <a href="mailto:info@b-design.com?subject=Intéressé par l'Express d'occasion" class="btn-action" style="text-decoration: none;">Réserver / Contacter</a>
+                    <button class="btn-action" onclick="openBuyModal('Express', 5800, 'YS-256-SF')">Acheter</button>
                 </div>
             </div>
 
@@ -1221,22 +1180,13 @@
     </div>
 
     <!-- ==========================================================
-       10. SECTION FAQ (FOIRE AUX QUESTIONS) - ONGLET DÉDIÉ
+       10. SECTION FAQ (FOIRE AUX QUESTIONS - TRIÉE PAR ORDRE DE FRÉQUENCE)
        ================================================---------- -->
     <div id="faq" class="section-content">
         <h2 class="section-title">FAQ - Foire Aux Questions</h2>
         <div class="faq-wrapper">
             
-            <div class="faq-item">
-                <button class="faq-question-btn" onclick="toggleFaq(this)">
-                    Lorsque nous commandons un flocage personnalisé, nous appartient-il ?
-                    <span class="faq-icon">+</span>
-                </button>
-                <div class="faq-answer-container">
-                    <p>Non, le flocage ne vous appartient pas, il reste la propriété intellectuelle exclusive de B-Design.</p>
-                </div>
-            </div>
-
+            <!-- 1. Question la plus fréquente : Comment se déroule une commande -->
             <div class="faq-item">
                 <button class="faq-question-btn" onclick="toggleFaq(this)">
                     Comment se déroule une commande de flocage ?
@@ -1247,16 +1197,29 @@
                 </div>
             </div>
 
+            <!-- 2. Propriété du flocage -->
             <div class="faq-item">
                 <button class="faq-question-btn" onclick="toggleFaq(this)">
-                    Quels sont les délais de réalisation des prestations ?
+                    Lorsque nous commandons un flocage personnalisé, nous appartient-il ?
                     <span class="faq-icon">+</span>
                 </button>
                 <div class="faq-answer-container">
-                    <p>Les délais dépendent du type de projet (flocage standard, personnalisé ou création de site web). Une fois la commande validée, nous convenons de vos disponibilités exactes pour planifier l'intervention au garage.</p>
+                    <p>Non, le flocage ne vous appartient pas, il reste la propriété intellectuelle exclusive de B-Design.</p>
                 </div>
             </div>
 
+            <!-- 3. Achat d'occasion / Règle des 3 jours -->
+            <div class="faq-item">
+                <button class="faq-question-btn" onclick="toggleFaq(this)">
+                    Quelles sont les règles applicables lors de l'achat d'un véhicule d'occasion ?
+                    <span class="faq-icon">+</span>
+                </button>
+                <div class="faq-answer-container">
+                    <p>Toute demande d'achat d'un véhicule d'occasion engage l'acheteur à finaliser la transaction dans un délai maximal de 3 jours. En cas de non-respect de cet engagement, un bannissement définitif de la plateforme sera appliqué.</p>
+                </div>
+            </div>
+
+            <!-- 4. Flocage unique -->
             <div class="faq-item">
                 <button class="faq-question-btn" onclick="toggleFaq(this)">
                     Puis-je commander un design de flocage entièrement unique ?
@@ -1267,26 +1230,29 @@
                 </div>
             </div>
 
+            <!-- 5. Modes de paiement -->
             <div class="faq-item">
                 <button class="faq-question-btn" onclick="toggleFaq(this)">
-                    Comment sont suivies et transmises nos commandes ?
+                    Quels sont les modes de paiement acceptés pour les prestations ?
                     <span class="faq-icon">+</span>
                 </button>
                 <div class="faq-answer-container">
-                    <p>Toutes les demandes et commandes envoyées via notre site web sont instantanément relayées sur notre canal sécurisé Discord via un système de bot automatisé pour un traitement rapide par notre équipe.</p>
+                    <p>Comme indiqué dans nos conditions générales, le règlement de la prestation doit être effectué en amont, au moment de la validation et du dépôt de votre dossier de commande auprès de notre studio.</p>
                 </div>
             </div>
 
+            <!-- 6. Délais de réalisation -->
             <div class="faq-item">
                 <button class="faq-question-btn" onclick="toggleFaq(this)">
-                    Que comprend le tarif de création de site web et d'hébergement ?
+                    Quels sont les délais de réalisation des prestations ?
                     <span class="faq-icon">+</span>
                 </button>
                 <div class="faq-answer-container">
-                    <p>La création de site web est proposée à un tarif fixe de 30 000 €. L'hébergement web professionnel est quant à lui facturé séparément sur une base mensuelle de 2 000 €.</p>
+                    <p>Les délais dépendent du type de projet (flocage standard, personnalisé ou création de site web). Une fois la commande validée, nous convenons de vos disponibilités exactes pour planifier l'intervention au garage.</p>
                 </div>
             </div>
 
+            <!-- 7. Modifications de projet -->
             <div class="faq-item">
                 <button class="faq-question-btn" onclick="toggleFaq(this)">
                     Est-il possible de modifier un projet de design graphique en cours de route ?
@@ -1297,13 +1263,25 @@
                 </div>
             </div>
 
+            <!-- 8. Site web et hébergement -->
             <div class="faq-item">
                 <button class="faq-question-btn" onclick="toggleFaq(this)">
-                    Quels sont les modes de paiement acceptés pour les prestations ?
+                    Que comprend le tarif de création de site web et d'hébergement ?
                     <span class="faq-icon">+</span>
                 </button>
                 <div class="faq-answer-container">
-                    <p>Comme indiqué dans nos conditions générales, le règlement de la prestation doit être effectué en amont, au moment de la validation et du dépôt de votre dossier de commande auprès de notre studio.</p>
+                    <p>La création de site web est proposée à un tarif fixe de 30 000 €. L'hébergement web professionnel est quant à lui facturé séparément sur une base mensuelle de 2 000 €.</p>
+                </div>
+            </div>
+
+            <!-- 9. Suivi des commandes (Moins posée) -->
+            <div class="faq-item">
+                <button class="faq-question-btn" onclick="toggleFaq(this)">
+                    Comment sont suivies et transmises nos commandes ?
+                    <span class="faq-icon">+</span>
+                </button>
+                <div class="faq-answer-container">
+                    <p>Toutes les demandes et commandes envoyées via notre site web sont instantanément relayées sur notre canal sécurisé Discord via un système de bot automatisé pour un traitement rapide par notre équipe.</p>
                 </div>
             </div>
 
@@ -1327,7 +1305,12 @@
             <p>Pour l'ensemble des prestations impliquant une intervention physique sur véhicule (notamment le flocage catalogue, personnalisé ou unique), le Client s'engage à déposer son véhicule au garage ou dans l'atelier désigné par B-Design pour toute la durée requise des travaux (comprenant la préparation, la mise en peinture le cas échéant, et l'application minutieuse du flocage).</p>
             <p>Aucune intervention, pose ou fabrication ne pourra être initiée tant que le règlement anticipé n'aura pas été validé et que le véhicule n'aura pas été physiquement mis à disposition du Studio dans les conditions convenues.</p>
 
-            <h3>3. Propriété Intellectuelle et Régime Juridique Applicable</h3>
+            <h3>3. Achat de Véhicules d'Occasion et Engagement de 3 Jours</h3>
+            <div class="cgv-alert-box">
+                🚨 <strong>Engagement d'achat (Occasions) :</strong> Toute demande d'achat effectuée via le catalogue d'occasions constitue un engagement ferme. L'acheteur s'engage formellement à finaliser l'acquisition et à régler le véhicule dans les <strong>trois (3) jours</strong> suivant la demande. À défaut de respect de ce délai, B-Design se réserve le droit d'annuler la vente et de prononcer le <strong>bannissement définitif</strong> du contrevenant de la plateforme.
+            </div>
+
+            <h3>4. Propriété Intellectuelle et Régime Juridique Applicable</h3>
             <div class="cgv-notice-box">
                 💡 <strong>Exclusivité des créations :</strong> Conformément aux dispositions de l'article L. 111-1 et de l'article L. 122-4 du Code de la propriété intellectuelle français (et aux législations internationales équivalentes applicables), le flocage personnalisé, les chartes graphiques, les logos, les affiches publicitaires ainsi que l'ensemble des éléments visuels, textuels et conceptuels créés et fournis par B-Design demeurent l'entière, pleine et exclusive propriété intellectuelle du Studio.
             </div>
@@ -1337,7 +1320,7 @@
                 ⚖️ <strong>Sanctions et Poursuites en cas de Violation :</strong> Toute reproduction, représentation, adaptation, exploitation, diffusion ou utilisation non autorisée, partielle ou totale, des œuvres, concepts et designs protégés de B-Design constitue un délit de contrefaçon réprimé par la loi. En cas de violation, de contrefaçon avérée ou d'atteinte caractérisée aux droits de propriété intellectuelle du Studio (conformément aux articles L. 335-2, L. 335-3 et suivants du Code de la propriété intellectuelle), <strong>des poursuites judiciaires rigoureuses (civiles et pénales) seront immédiatement engagées contre les contrevenants, les personnes physiques mises en cause ainsi que les entités morales concernées</strong>. Ces poursuites exposent les contrevenants à de lourdes peines d'amende, à des peines d'emprisonnement en cas de contrefaçon délibérée, ainsi qu'au versement de dommages et intérêts colossaux destinés à réparer le préjudice subi par B-Design.
             </div>
 
-            <h3>4. Grille Tarifaire, Prestations et abonnements Web</h3>
+            <h3>5. Grille Tarifaire, Prestations et abonnements Web</h3>
             <p>Les prix applicables aux services de B-Design sont ceux en vigueur au jour de la validation de la commande, exprimés en Euros (€). Notre offre de services se décline comme suit :</p>
             <ul>
                 <li><strong>Flocages de véhicules :</strong> Formules catalogue, conceptions personnalisées sur-mesure et éditions de flocages uniques garantissant l'exclusivité d'un seul exemplaire en ville (tarif fixé à 15 000 €).</li>
@@ -1345,17 +1328,17 @@
                 <li><strong>Solutions Numériques et Web :</strong> Conception et développement de sites internet professionnels (facturés au forfait de 30 000 €) ainsi que la prestation technique d'hébergement web professionnel facturée sur une base mensuelle récurrente de 2 000 €.</li>
             </ul>
 
-            <h3>5. Modifications de Projet, Délais et Responsabilité</h3>
+            <h3>6. Modifications de Projet, Délais et Responsabilité</h3>
             <p>B-Design s'engage à mettre en œuvre son expertise artistique et technique pour exécuter les missions confiées avec le plus grand soin. Durant la phase de conception créative, des ajustements mineurs peuvent être intégrés à la demande du Client.</p>
             <p>Toutefois, toute modification structurelle ou majeure exigée après la validation formelle des prototypes ou maquettes initiales pourra faire l'objet d'une facturation additionnelle sous forme de supplément tarifaire. Les délais de réalisation sont donnés à titre indicatif et s'ajustent en fonction de la complexité du projet et de la disponibilité du Client.</p>
 
-            <h3>6. Règlement des Litiges et Juridiction Compétente</h3>
+            <h3>7. Règlement des Litiges et Juridiction Compétente</h3>
             <p>En cas de différend ou de litige relatif à l'interprétation, la validité ou l'exécution des présentes Conditions Générales, les parties s'engagent à rechercher en priorité une solution amiable avant d'entamer toute action judiciaire. À défaut d'accord amiable, les tribunaux compétents seront saisis pour trancher le litige conformément aux lois en vigueur.</p>
         </div>
     </div>
 
     <!-- ==========================================================
-       12. FENÊTRE MODALE : FORMULAIRE DE COMMANDE
+       12. FENÊTRE MODALE : FORMULAIRE DE COMMANDE (PRESTATIONS)
        ================================================---------- -->
     <div id="orderModal" class="modal">
         <div class="modal-content">
@@ -1420,6 +1403,57 @@
     </div>
 
     <!-- ==========================================================
+       12.5. FENÊTRE MODALE : FORMULAIRE D'ACHAT (OCCASIONS)
+       ================================================---------- -->
+    <div id="buyModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeBuyModal()">&times;</span>
+            <h2 id="buyModalTitle" style="color: #fff; margin-top: 0; border-left: 4px solid var(--accent-yellow); padding-left: 10px;">Achat de Véhicule d'Occasion</h2>
+            
+            <form id="buyForm" onsubmit="sendBuyToDiscord(event)">
+                <div class="form-group">
+                    <label for="vehiculeNom">Véhicule sélectionné :</label>
+                    <input type="text" id="vehiculeNom" readonly style="background: #222; color: var(--accent-yellow); font-weight: bold;">
+                </div>
+                <div class="form-group">
+                    <label for="vehiculePlaque">Plaque d'immatriculation :</label>
+                    <input type="text" id="vehiculePlaque" readonly style="background: #222; color: var(--accent-blue); font-weight: bold;">
+                </div>
+                <div class="form-group">
+                    <label for="buyPrix">Prix :</label>
+                    <input type="text" id="buyPrix" readonly style="background: #222; color: var(--accent-yellow); font-weight: bold;">
+                </div>
+                <div class="form-group">
+                    <label for="buyPrenom">Prénom :</label>
+                    <input type="text" id="buyPrenom" required placeholder="Votre prénom">
+                </div>
+                <div class="form-group">
+                    <label for="buyNom">Nom :</label>
+                    <input type="text" id="buyNom" required placeholder="Votre nom">
+                </div>
+                <div class="form-group">
+                    <label for="buyTelephone">Numéro de téléphone :</label>
+                    <input type="tel" id="buyTelephone" required placeholder="06 XX XX XX XX">
+                </div>
+                <div class="form-group">
+                    <label for="buyCommentaire">Commentaire / Précisions (facultatif) :</label>
+                    <textarea id="buyCommentaire" rows="3" placeholder="Informations complémentaires..."></textarea>
+                </div>
+
+                <!-- Case à cocher obligatoire -->
+                <div class="checkbox-group">
+                    <input type="checkbox" id="buyAcceptNotice" required>
+                    <label for="buyAcceptNotice" style="cursor: pointer; font-weight: normal;">
+                        J'accepte les <span class="cgv-link" onclick="openCgvFromModal(event); closeBuyModal();">conditions générales</span>.
+                    </label>
+                </div>
+
+                <button type="submit" class="btn-action">J'achète !</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- ==========================================================
        13. FENÊTRE MODALE : GALERIE INTERACTIVE
        ================================================---------- -->
     <div id="galleryModal" class="modal">
@@ -1431,37 +1465,44 @@
     </div>
 
     <!-- ==========================================================
-       14. SECTION MODES DE PAIEMENT (SUPPORT DES FICHIERS .SVG)
+       14. SECTION MODES DE PAIEMENT (FICHIERS .SVG)
        ================================================---------- -->
     <div class="payment-section">
         <div class="payment-title">Moyens de paiement sécurisés acceptés</div>
         <div class="payment-grid">
-            <div class="payment-logo-container"><img src="img/bancontact.svg" alt="Bancontact"></div>
-            <div class="payment-logo-container"><img src="img/payconiq.svg" alt="Payconiq"></div>
-            <div class="payment-logo-container"><img src="img/visa.svg" alt="Visa"></div>
-            <div class="payment-logo-container"><img src="img/mastercard.svg" alt="Mastercard"></div>
-            <div class="payment-logo-container"><img src="img/applepay.svg" alt="Apple Pay"></div>
-            <div class="payment-logo-container"><img src="img/googlepay.svg" alt="Google Pay"></div>
+            <div class="payment-logo-container"><img src="img/belfius-svgrepo-com.svg" alt="Belfius"></div>
+            <div class="payment-logo-container"><img src="img/bancontact-payconiq-svgrepo-com.svg" alt="Bancontact Payconiq"></div>
+            <div class="payment-logo-container"><img src="img/apple-pay-svgrepo-com.svg" alt="Apple Pay"></div>
+            <div class="payment-logo-container"><img src="img/bancontact-svgrepo-com.svg" alt="Bancontact"></div>
+            <div class="payment-logo-container"><img src="img/visa-classic-svgrepo-com.svg" alt="Visa"></div>
+            <div class="payment-logo-container"><img src="img/mastercard-full-svgrepo-com.svg" alt="Mastercard"></div>
         </div>
     </div>
 
     <!-- ==========================================================
-       15. PIED DE PAGE (FOOTER)
+       15. PIED DE PAGE (FOOTER) AVEC DRAPEAU BELGE
        ================================================---------- -->
     <footer>
         <p>Contact : 06 44 57 61 51 | Email : info@b-design.com | Site : www.b-design.com</p>
-        <p>&copy; 2026 B-Design. Tous droits réservés.</p>
+        <div class="footer-content">
+            <img src="img/flag-be-svgrepo-com.svg" alt="Drapeau Belge" class="footer-flag">
+            <span>&copy; 2026 B-Design. Tous droits réservés.</span>
+        </div>
     </footer>
 
     <!-- ==========================================================
-       16. SCRIPTS JAVASCRIPT (ONGLETS, FAQ ACCORDÉON ET WEBHOOK)
+       16. SCRIPTS JAVASCRIPT (ONGLETS, FAQ, MODALES ET WEBHOOK)
        ================================================---------- -->
     <script>
-        // URL de votre Webhook Discord configurée
+        // URLs des Webhooks Discord configurées
         const DISCORD_WEBHOOK_URL = "https://discord.com/api/webhooks/1546551076453486724/uuQRqs903xLpEhc1BPTbif6ZrWEyVemeWGdihViQweXtYAeuq7PjIv3FUFx-BzTHkruj";
+        const DISCORD_BUY_WEBHOOK_URL = "https://discord.com/api/webhooks/1546603016617070719/ZeLcWiCWKkUPGqendCCg2___HiScM2Ps73MZT6Y2aKsHTM0Qmi2G8TD4YONi9dBnGe2i";
 
         let selectedCategory = "";
         let currentOptions = [];
+        let currentBuyVehicle = "";
+        let currentBuyPrice = "";
+        let currentBuyPlaque = "";
 
         // Fonction pour changer d'onglet
         function switchTab(tabId, event) {
@@ -1473,22 +1514,21 @@
             });
             document.getElementById(tabId).classList.add('active');
             
-            // Si l'événement vient d'un clic direct sur un bouton du menu
             if (event && event.currentTarget) {
                 event.currentTarget.classList.add('active');
             } else {
-                // Si déclenché par une fonction (ex: lien CGV depuis la modale)
                 const targetBtn = document.getElementById('btn-' + tabId);
                 if (targetBtn) targetBtn.classList.add('active');
             }
         }
 
-        // Fonction pour ouvrir les conditions générales depuis le formulaire de commande
+        // Fonction pour ouvrir les conditions générales depuis les formulaires
         function openCgvFromModal(event) {
-            event.stopPropagation(); // Empêche de cocher/décocher la case par la même occasion
-            closeOrderModal();       // Ferme la modale du formulaire
-            switchTab('cgv', null);  // Bascule sur l'onglet des conditions générales
-            window.scrollTo({ top: 0, behavior: 'smooth' }); // Remonte en haut de page en douceur
+            event.stopPropagation();
+            closeOrderModal();
+            closeBuyModal();
+            switchTab('cgv', null);
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
         // Fonction pour gérer l'accordéon de la FAQ
@@ -1497,29 +1537,27 @@
             currentItem.classList.toggle('active');
         }
 
-        // Ouvrir le formulaire de commande avec les options et prix associés
+        // Ouvrir le formulaire de commande (Prestations)
         function openOrderModal(categoryName, optionsArray) {
             selectedCategory = categoryName;
             currentOptions = optionsArray;
             document.getElementById('orderModalTitle').innerText = "Commande : " + categoryName;
             
             const selectElement = document.getElementById('typeDemande');
-            selectElement.innerHTML = ""; // Vider les anciennes options
+            selectElement.innerHTML = "";
             
             optionsArray.forEach((item, index) => {
                 const opt = document.createElement('option');
-                opt.value = index; // On stocke l'index pour retrouver facilement le prix
+                opt.value = index;
                 opt.textContent = `${item.name} (${item.price.toLocaleString()} €)`;
                 selectElement.appendChild(opt);
             });
 
             document.getElementById('quantite').value = 1;
             calculateSubtotal();
-
             document.getElementById('orderModal').style.display = "block";
         }
 
-        // Calculer et afficher le sous-total en temps réel
         function calculateSubtotal() {
             const selectElement = document.getElementById('typeDemande');
             const selectedIndex = selectElement.value;
@@ -1534,16 +1572,93 @@
             }
         }
 
-        // Fermer le formulaire de commande
         function closeOrderModal() {
             document.getElementById('orderModal').style.display = "none";
         }
 
-        // Envoyer les données au Webhook Discord en format Embed
+        // Ouvrir le formulaire d'achat (Occasions)
+        function openBuyModal(vehicleName, vehiclePrice, vehiclePlaque) {
+            currentBuyVehicle = vehicleName;
+            currentBuyPrice = vehiclePrice.toLocaleString() + " €";
+            currentBuyPlaque = vehiclePlaque;
+            
+            document.getElementById('vehiculeNom').value = vehicleName;
+            document.getElementById('vehiculePlaque').value = vehiclePlaque;
+            document.getElementById('buyPrix').value = currentBuyPrice;
+            document.getElementById('buyForm').reset();
+            
+            document.getElementById('vehiculeNom').value = vehicleName;
+            document.getElementById('vehiculePlaque').value = vehiclePlaque;
+            document.getElementById('buyPrix').value = currentBuyPrice;
+
+            document.getElementById('buyModal').style.display = "block";
+        }
+
+        function closeBuyModal() {
+            document.getElementById('buyModal').style.display = "none";
+        }
+
+        // Envoyer la demande d'achat d'occasion sur son webhook dédié avec la plaque
+        function sendBuyToDiscord(event) {
+            event.preventDefault();
+
+            const acceptNotice = document.getElementById('buyAcceptNotice').checked;
+            if (!acceptNotice) {
+                alert("Vous devez accepter les conditions générales.");
+                return;
+            }
+
+            const prenom = document.getElementById('buyPrenom').value;
+            const nom = document.getElementById('buyNom').value;
+            const telephone = document.getElementById('buyTelephone').value;
+            const commentaire = document.getElementById('buyCommentaire').value || "Aucun commentaire";
+
+            const embedData = {
+                username: "B-Design - Bot Achat Occasion",
+                embeds: [{
+                    title: "🚗 Demande d'Achat - Véhicule d'Occasion",
+                    color: 15158332,
+                    fields: [
+                        { name: "🚘 Véhicule", value: currentBuyVehicle, inline: false },
+                        { name: "🏷️ Plaque d'immatriculation", value: currentBuyPlaque, inline: true },
+                        { name: "💰 Prix", value: currentBuyPrice, inline: true },
+                        { name: "👤 Prénom", value: prenom, inline: true },
+                        { name: "👤 Nom", value: nom, inline: true },
+                        { name: "📞 Téléphone", value: telephone, inline: true },
+                        { name: "💬 Commentaire", value: commentaire, inline: false },
+                        { name: "✅ Conditions acceptées", value: "Oui (Conditions générales acceptées)", inline: false }
+                    ],
+                    footer: {
+                        text: "B-Design Occasions - Traitement prioritaire (Rappel : Règle des 3 jours)"
+                    },
+                    timestamp: new Date().toISOString()
+                }]
+            };
+
+            fetch(DISCORD_BUY_WEBHOOK_URL, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(embedData)
+            })
+            .then(response => {
+                if (response.ok) {
+                    alert("Votre demande d'achat a bien été transmise ! L'équipe vous contactera.");
+                    closeBuyModal();
+                    document.getElementById('buyForm').reset();
+                } else {
+                    alert("Erreur lors de l'envoi de la demande.");
+                }
+            })
+            .catch(error => {
+                console.error('Erreur:', error);
+                alert("Une erreur est survenue lors de la communication avec Discord.");
+            });
+        }
+
+        // Envoyer les données de prestations sur leur webhook principal
         function sendToDiscord(event) {
             event.preventDefault();
 
-            // Vérification de la case à cocher (sécurité supplémentaire)
             const acceptNotice = document.getElementById('acceptNotice').checked;
             if (!acceptNotice) {
                 alert("Vous devez accepter les conditions générales pour envoyer le formulaire.");
@@ -1561,12 +1676,11 @@
             const disponibilite = document.getElementById('disponibilite').value;
             const commentaire = document.getElementById('commentaire').value || "Aucun commentaire";
 
-            // Construction du format Embed de Discord
             const embedData = {
                 username: "B-Design - Bot Commande",
                 embeds: [{
                     title: "📋 Nouvelle Commande / Demande",
-                    color: 15844367, // Couleur jaune/dorée
+                    color: 15844367,
                     fields: [
                         { name: "🎯 Catégorie", value: selectedCategory, inline: false },
                         { name: "📌 Type de demande", value: selectedItem.name, inline: false },
@@ -1586,12 +1700,9 @@
                 }]
             };
 
-            // Envoi de la requête vers l'API Discord
             fetch(DISCORD_WEBHOOK_URL, {
                 method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
+                headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(embedData)
             })
             .then(response => {
@@ -1632,7 +1743,6 @@
             document.getElementById('galleryModal').style.display = "block";
         }
 
-        // Fonction pour fermer la galerie
         function closeGallery() {
             document.getElementById('galleryModal').style.display = "none";
         }
@@ -1640,9 +1750,13 @@
         // Fermer les modales si on clique à l'extérieur
         window.onclick = function(event) {
             const orderModal = document.getElementById('orderModal');
+            const buyModal = document.getElementById('buyModal');
             const galleryModal = document.getElementById('galleryModal');
             if (event.target == orderModal) {
                 orderModal.style.display = "none";
+            }
+            if (event.target == buyModal) {
+                buyModal.style.display = "none";
             }
             if (event.target == galleryModal) {
                 galleryModal.style.display = "none";
