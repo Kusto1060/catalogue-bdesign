@@ -322,11 +322,28 @@
             font-weight: 600;
         }
 
-        .vehicle-price {
-            font-size: 1.35em;
-            color: var(--accent-yellow);
+        /* Style pour Flocage indisponible en rouge avec surbrillance et soulignement */
+        .flocage-indisponible {
+            font-size: 1.15em;
+            color: #ff4d4d;
             font-weight: 700;
             margin-bottom: 15px;
+            text-shadow: 0 0 10px rgba(255, 77, 77, 0.4);
+            letter-spacing: 0.3px;
+            text-decoration: underline;
+            text-underline-offset: 4px;
+        }
+
+        /* Style pour Flocage disponible en vert avec surbrillance et soulignement */
+        .flocage-disponible {
+            font-size: 1.15em;
+            color: #2ecc71;
+            font-weight: 700;
+            margin-bottom: 15px;
+            text-shadow: 0 0 10px rgba(46, 204, 113, 0.4);
+            letter-spacing: 0.3px;
+            text-decoration: underline;
+            text-underline-offset: 4px;
         }
 
         .vehicle-specs {
@@ -1089,8 +1106,8 @@
                     <ul class="price-list">
                         <li class="price-item"><span>Flocage Catalogue</span><span class="price-value">2.500 €</span></li>
                         <li class="price-item"><span>Flocage Personnalisé</span><span class="price-value">3.300 €</span></li>
-                        <li class="price-item"><span>Affiche (793x1983)</span><span class="price-value">1.100 €</span></li>
-                        <li class="price-item"><span>Affiche (1920x1080)</span><span class="price-value">1.300 €</span></li>
+                        <li class="price-item"><span>Affiche (793x1983)</span><span class="price-value">1.200 €</span></li>
+                        <li class="price-item"><span>Affiche (1920x1080)</span><span class="price-value">1.400 €</span></li>
                         <li class="price-item"><span>Création de site web</span><span class="price-value">30.000 €</span></li>
                         <li class="price-item sub-item"><span>↳ Hébergement (mois)</span><span class="price-value">2.000 €</span></li>
                     </ul>
@@ -1100,8 +1117,8 @@
                     <button class="btn-action" onclick="openOrderModal('Tarifs Service Public', [
                         {name: 'Flocage Catalogue', price: 2500},
                         {name: 'Flocage Personnalisé', price: 3300},
-                        {name: 'Affiche (793x1983)', price: 1100},
-                        {name: 'Affiche (1920x1080)', price: 1300},
+                        {name: 'Affiche (793x1983)', price: 1200},
+                        {name: 'Affiche (1920x1080)', price: 1400},
                         {name: 'Création de site web', price: 30000},
                         {name: 'Hébergement web (mois)', price: 2000}
                     ], 0.06)">Commander</button>
@@ -1131,136 +1148,145 @@
         <h2 class="section-title">Catalogue B-Design - Nos Réalisations</h2>
         <div class="grid">
             
+            <!-- EXPRESS (Flocage disponible en vert, souligné) -->
             <div class="vehicle-card" onclick="openGallery('Express', [
-                {title: 'Style de Flocage A', img: 'img/express.png'},
-                {title: 'Style de Flocage B', img: 'img/express.png'},
-                {title: 'Style de Flocage C', img: 'img/express.png'},
-                {title: 'Style de Flocage D', img: 'img/express.png'}
+                {title: 'Express Space', img: 'img/express-space.png'},
+                {title: 'Express Lumberjack', img: 'img/express-lumberjack.png'},
+                {title: 'Prochainement..', img: 'img/express.png'},
+                {title: 'Prochainement..', img: 'img/express.png'}
             ])">
                 <img src="img/express.png" alt="Express" class="vehicle-image">
                 <div class="vehicle-info">
                     <h3 class="vehicle-title">Express</h3>
-                    <div class="vehicle-price">Déclinaisons disponibles</div>
+                    <div class="flocage-disponible">Flocage disponible</div>
                     <ul class="vehicle-specs"><li><span>Cliquez pour voir les styles de flocage</span></li></ul>
                     <span class="btn-action">Afficher les flocages</span>
                 </div>
             </div>
 
+            <!-- PRIMER -->
             <div class="vehicle-card" onclick="openGallery('Primer', [
-                {title: 'Style de Flocage A', img: 'img/premier.png'},
-                {title: 'Style de Flocage B', img: 'img/premier.png'},
-                {title: 'Style de Flocage C', img: 'img/premier.png'},
-                {title: 'Style de Flocage D', img: 'img/premier.png'}
+                {title: 'Prochainement..', img: 'img/premier.png'},
+                {title: 'Prochainement..', img: 'img/premier.png'},
+                {title: 'Prochainement..', img: 'img/premier.png'},
+                {title: 'Prochainement..', img: 'img/premier.png'}
             ])">
                 <img src="img/premier.png" alt="Primer" class="vehicle-image">
                 <div class="vehicle-info">
                     <h3 class="vehicle-title">Primer</h3>
-                    <div class="vehicle-price">Déclinaisons disponibles</div>
+                    <div class="flocage-indisponible">Flocage indisponible</div>
                     <ul class="vehicle-specs"><li><span>Cliquez pour voir les styles de flocage</span></li></ul>
                     <span class="btn-action">Afficher les flocages</span>
                 </div>
             </div>
 
+            <!-- BERLINGO -->
             <div class="vehicle-card" onclick="openGallery('Berlingo', [
-                {title: 'Style de Flocage A', img: 'img/berlingo.png'},
-                {title: 'Style de Flocage B', img: 'img/berlingo.png'},
-                {title: 'Style de Flocage C', img: 'img/berlingo.png'},
-                {title: 'Style de Flocage D', img: 'img/berlingo.png'}
+                {title: 'Prochainement..', img: 'img/berlingo.png'},
+                {title: 'Prochainement..', img: 'img/berlingo.png'},
+                {title: 'Prochainement..', img: 'img/berlingo.png'},
+                {title: 'Prochainement..', img: 'img/berlingo.png'}
             ])">
                 <img src="img/berlingo.png" alt="Berlingo" class="vehicle-image">
                 <div class="vehicle-info">
                     <h3 class="vehicle-title">Berlingo</h3>
-                    <div class="vehicle-price">Déclinaisons disponibles</div>
+                    <div class="flocage-indisponible">Flocage indisponible</div>
                     <ul class="vehicle-specs"><li><span>Cliquez pour voir les styles de flocage</span></li></ul>
                     <span class="btn-action">Afficher les flocages</span>
                 </div>
             </div>
 
+            <!-- 206 -->
             <div class="vehicle-card" onclick="openGallery('206', [
-                {title: 'Style de Flocage A', img: 'img/206.png'},
-                {title: 'Style de Flocage B', img: 'img/206.png'},
-                {title: 'Style de Flocage C', img: 'img/206.png'},
-                {title: 'Style de Flocage D', img: 'img/206.png'}
+                {title: 'Prochainement..', img: 'img/206.png'},
+                {title: 'Prochainement..', img: 'img/206.png'},
+                {title: 'Prochainement..', img: 'img/206.png'},
+                {title: 'Prochainement..', img: 'img/206.png'}
             ])">
                 <img src="img/206.png" alt="206" class="vehicle-image">
                 <div class="vehicle-info">
                     <h3 class="vehicle-title">206</h3>
-                    <div class="vehicle-price">Déclinaisons disponibles</div>
+                    <div class="flocage-indisponible">Flocage indisponible</div>
                     <ul class="vehicle-specs"><li><span>Cliquez pour voir les styles de flocage</span></li></ul>
                     <span class="btn-action">Afficher les flocages</span>
                 </div>
             </div>
 
+            <!-- GOLSTER 1981 -->
             <div class="vehicle-card" onclick="openGallery('Golster 1981', [
-                {title: 'Style de Flocage A', img: 'img/golster.png'},
-                {title: 'Style de Flocage B', img: 'img/golster.png'},
-                {title: 'Style de Flocage C', img: 'img/golster.png'},
-                {title: 'Style de Flocage D', img: 'img/golster.png'}
+                {title: 'Prochainement..', img: 'img/golster.png'},
+                {title: 'Prochainement..', img: 'img/golster.png'},
+                {title: 'Prochainement..', img: 'img/golster.png'},
+                {title: 'Prochainement..', img: 'img/golster.png'}
             ])">
                 <img src="img/golster.png" alt="Golster 1981" class="vehicle-image">
                 <div class="vehicle-info">
                     <h3 class="vehicle-title">Golster 1981</h3>
-                    <div class="vehicle-price">Déclinaisons disponibles</div>
+                    <div class="flocage-indisponible">Flocage indisponible</div>
                     <ul class="vehicle-specs"><li><span>Cliquez pour voir les styles de flocage</span></li></ul>
                     <span class="btn-action">Afficher les flocages</span>
                 </div>
             </div>
 
+            <!-- MEGANE IV -->
             <div class="vehicle-card" onclick="openGallery('Megane IV', [
-                {title: 'Style de Flocage A', img: 'img/megane.png'},
-                {title: 'Style de Flocage B', img: 'img/megane.png'},
-                {title: 'Style de Flocage C', img: 'img/megane.png'},
-                {title: 'Style de Flocage D', img: 'img/megane.png'}
+                {title: 'Prochainement..', img: 'img/megane.png'},
+                {title: 'Prochainement..', img: 'img/megane.png'},
+                {title: 'Prochainement..', img: 'img/megane.png'},
+                {title: 'Prochainement..', img: 'img/megane.png'}
             ])">
                 <img src="img/megane.png" alt="Megane IV" class="vehicle-image">
                 <div class="vehicle-info">
                     <h3 class="vehicle-title">Megane IV</h3>
-                    <div class="vehicle-price">Déclinaisons disponibles</div>
+                    <div class="flocage-indisponible">Flocage indisponible</div>
                     <ul class="vehicle-specs"><li><span>Cliquez pour voir les styles de flocage</span></li></ul>
                     <span class="btn-action">Afficher les flocages</span>
                 </div>
             </div>
 
+            <!-- 5008 -->
             <div class="vehicle-card" onclick="openGallery('5008', [
-                {title: 'Style de Flocage A', img: 'img/5008.png'},
-                {title: 'Style de Flocage B', img: 'img/5008.png'},
-                {title: 'Style de Flocage C', img: 'img/5008.png'},
-                {title: 'Style de Flocage D', img: 'img/5008.png'}
+                {title: 'Prochainement..', img: 'img/5008.png'},
+                {title: 'Prochainement..', img: 'img/5008.png'},
+                {title: 'Prochainement..', img: 'img/5008.png'},
+                {title: 'Prochainement..', img: 'img/5008.png'}
             ])">
                 <img src="img/5008.png" alt="5008" class="vehicle-image">
                 <div class="vehicle-info">
                     <h3 class="vehicle-title">5008</h3>
-                    <div class="vehicle-price">Déclinaisons disponibles</div>
+                    <div class="flocage-indisponible">Flocage indisponible</div>
                     <ul class="vehicle-specs"><li><span>Cliquez pour voir les styles de flocage</span></li></ul>
                     <span class="btn-action">Afficher les flocages</span>
                 </div>
             </div>
 
+            <!-- OLYMPIA -->
             <div class="vehicle-card" onclick="openGallery('Olympia', [
-                {title: 'Style de Flocage A', img: 'img/olympia.png'},
-                {title: 'Style de Flocage B', img: 'img/olympia.png'},
-                {title: 'Style de Flocage C', img: 'img/olympia.png'},
-                {title: 'Style de Flocage D', img: 'img/olympia.png'}
+                {title: 'Prochainement..', img: 'img/olympia.png'},
+                {title: 'Prochainement..', img: 'img/olympia.png'},
+                {title: 'Prochainement..', img: 'img/olympia.png'},
+                {title: 'Prochainement..', img: 'img/olympia.png'}
             ])">
                 <img src="img/olympia.png" alt="Olympia" class="vehicle-image">
                 <div class="vehicle-info">
                     <h3 class="vehicle-title">Olympia</h3>
-                    <div class="vehicle-price">Déclinaisons disponibles</div>
+                    <div class="flocage-indisponible">Flocage indisponible</div>
                     <ul class="vehicle-specs"><li><span>Cliquez pour voir les styles de flocage</span></li></ul>
                     <span class="btn-action">Afficher les flocages</span>
                 </div>
             </div>
 
+            <!-- STELLAR 911 -->
             <div class="vehicle-card" onclick="openGallery('Stellar 911', [
-                {title: 'Style de Flocage A', img: 'img/stellar.png'},
-                {title: 'Style de Flocage B', img: 'img/stellar.png'},
-                {title: 'Style de Flocage C', img: 'img/stellar.png'},
-                {title: 'Style de Flocage D', img: 'img/stellar.png'}
+                {title: 'Prochainement..', img: 'img/stellar.png'},
+                {title: 'Prochainement..', img: 'img/stellar.png'},
+                {title: 'Prochainement..', img: 'img/stellar.png'},
+                {title: 'Prochainement..', img: 'img/stellar.png'}
             ])">
                 <img src="img/stellar.png" alt="Stellar 911" class="vehicle-image">
                 <div class="vehicle-info">
                     <h3 class="vehicle-title">Stellar 911</h3>
-                    <div class="vehicle-price">Déclinaisons disponibles</div>
+                    <div class="flocage-indisponible">Flocage indisponible</div>
                     <ul class="vehicle-specs"><li><span>Cliquez pour voir les styles de flocage</span></li></ul>
                     <span class="btn-action">Afficher les flocages</span>
                 </div>
@@ -1269,7 +1295,7 @@
         </div>
     </div>
 
-    <!-- SECTION 3 : CATALOGUE OCCASIONS (AVEC L'IMAGE express.png) -->
+    <!-- SECTION 3 : CATALOGUE OCCASIONS -->
     <div id="vehicules" class="section-content">
         <h2 class="section-title">Catalogue Occassions</h2>
         <div class="grid">
@@ -1433,7 +1459,7 @@
         </div>
     </div>
 
-    <!-- MODALE GALERIE DÉCLINAISONS (Sans prix ni bouton de commande sous les images) -->
+    <!-- MODALE GALERIE DÉCLINAISONS -->
     <div id="galleryModal" class="modal">
         <div class="modal-content wide">
             <span class="close-modal" onclick="closeGallery()">&times;</span>
