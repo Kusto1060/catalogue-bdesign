@@ -750,7 +750,7 @@
         }
 
         .modal-content.wide {
-            max-width: 950px;
+            max-width: 800px;
         }
 
         .close-modal {
@@ -860,11 +860,18 @@
             font-weight: 600;
         }
 
+        /* Grille des déclinaisons : 2 colonnes (2 rangées de 2 pour 4 éléments) */
         .modal-gallery {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 22px;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
             margin-top: 25px;
+        }
+
+        @media (max-width: 700px) {
+            .modal-gallery {
+                grid-template-columns: 1fr;
+            }
         }
 
         .gallery-item {
@@ -874,16 +881,19 @@
             border: 1px solid var(--border-color);
             text-align: center;
             padding-bottom: 18px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
         }
 
         .gallery-item img {
             width: 100%;
-            height: 170px;
+            height: 160px;
             object-fit: cover;
             border-bottom: 1px solid var(--border-color);
         }
 
-        /* Overlay de confirmation temporaire (3,5 secondes) */
+        /* Overlay de succès temporaire (3,5 secondes) */
         .success-overlay {
             display: none;
             position: fixed;
@@ -1116,108 +1126,155 @@
         </div>
     </div>
 
-    <!-- SECTION 2 : CATALOGUE B-DESIGN (COMPLET AVEC 9 VÉHICULES) -->
+    <!-- SECTION 2 : CATALOGUE B-DESIGN -->
     <div id="bdesign" class="section-content">
         <h2 class="section-title">Catalogue B-Design - Nos Réalisations</h2>
         <div class="grid">
-            <div class="vehicle-card" onclick="openGallery('Express', [{title: 'Flocage Catalogue', price: '2.900 €', img: 'https://images.unsplash.com/photo-1555215695-3004980ad54e?auto=format&fit=crop&w=600&q=80'}, {title: 'Flocage Personnalisé', price: '3.700 €', img: 'https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?auto=format&fit=crop&w=600&q=80'}])">
-                <img src="https://images.unsplash.com/photo-1555215695-3004980ad54e?auto=format&fit=crop&w=600&q=80" alt="Express" class="vehicle-image">
+            
+            <div class="vehicle-card" onclick="openGallery('Express', [
+                {title: 'Style de Flocage A', img: 'img/express.png'},
+                {title: 'Style de Flocage B', img: 'img/express.png'},
+                {title: 'Style de Flocage C', img: 'img/express.png'},
+                {title: 'Style de Flocage D', img: 'img/express.png'}
+            ])">
+                <img src="img/express.png" alt="Express" class="vehicle-image">
                 <div class="vehicle-info">
                     <h3 class="vehicle-title">Express</h3>
                     <div class="vehicle-price">Déclinaisons disponibles</div>
                     <ul class="vehicle-specs"><li><span>Cliquez pour voir les styles de flocage</span></li></ul>
-                    <span class="btn-action">Voir les déclinaisons</span>
+                    <span class="btn-action">Afficher les flocages</span>
                 </div>
             </div>
 
-            <div class="vehicle-card" onclick="openGallery('Primer', [{title: 'Flocage Catalogue', price: '2.900 €', img: 'https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?auto=format&fit=crop&w=600&q=80'}, {title: 'Flocage Personnalisé', price: '3.700 €', img: 'https://images.unsplash.com/photo-1617814076367-b759c7d7e738?auto=format&fit=crop&w=600&q=80'}])">
-                <img src="https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?auto=format&fit=crop&w=600&q=80" alt="Primer" class="vehicle-image">
+            <div class="vehicle-card" onclick="openGallery('Primer', [
+                {title: 'Style de Flocage A', img: 'img/premier.png'},
+                {title: 'Style de Flocage B', img: 'img/premier.png'},
+                {title: 'Style de Flocage C', img: 'img/premier.png'},
+                {title: 'Style de Flocage D', img: 'img/premier.png'}
+            ])">
+                <img src="img/premier.png" alt="Primer" class="vehicle-image">
                 <div class="vehicle-info">
                     <h3 class="vehicle-title">Primer</h3>
                     <div class="vehicle-price">Déclinaisons disponibles</div>
                     <ul class="vehicle-specs"><li><span>Cliquez pour voir les styles de flocage</span></li></ul>
-                    <span class="btn-action">Voir les déclinaisons</span>
+                    <span class="btn-action">Afficher les flocages</span>
                 </div>
             </div>
 
-            <div class="vehicle-card" onclick="openGallery('Berlingo', [{title: 'Flocage Catalogue', price: '2.900 €', img: 'https://images.unsplash.com/photo-1617814076367-b759c7d7e738?auto=format&fit=crop&w=600&q=80'}, {title: 'Flocage Unique', price: '15.000 €', img: 'https://images.unsplash.com/photo-1555215695-3004980ad54e?auto=format&fit=crop&w=600&q=80'}])">
-                <img src="https://images.unsplash.com/photo-1617814076367-b759c7d7e738?auto=format&fit=crop&w=600&q=80" alt="Berlingo" class="vehicle-image">
+            <div class="vehicle-card" onclick="openGallery('Berlingo', [
+                {title: 'Style de Flocage A', img: 'img/berlingo.png'},
+                {title: 'Style de Flocage B', img: 'img/berlingo.png'},
+                {title: 'Style de Flocage C', img: 'img/berlingo.png'},
+                {title: 'Style de Flocage D', img: 'img/berlingo.png'}
+            ])">
+                <img src="img/berlingo.png" alt="Berlingo" class="vehicle-image">
                 <div class="vehicle-info">
                     <h3 class="vehicle-title">Berlingo</h3>
                     <div class="vehicle-price">Déclinaisons disponibles</div>
                     <ul class="vehicle-specs"><li><span>Cliquez pour voir les styles de flocage</span></li></ul>
-                    <span class="btn-action">Voir les déclinaisons</span>
+                    <span class="btn-action">Afficher les flocages</span>
                 </div>
             </div>
 
-            <div class="vehicle-card" onclick="openGallery('206', [{title: 'Flocage Catalogue', price: '2.900 €', img: 'https://images.unsplash.com/photo-1555215695-3004980ad54e?auto=format&fit=crop&w=600&q=80'}, {title: 'Flocage Personnalisé', price: '3.700 €', img: 'https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?auto=format&fit=crop&w=600&q=80'}])">
-                <img src="https://images.unsplash.com/photo-1555215695-3004980ad54e?auto=format&fit=crop&w=600&q=80" alt="206" class="vehicle-image">
+            <div class="vehicle-card" onclick="openGallery('206', [
+                {title: 'Style de Flocage A', img: 'img/206.png'},
+                {title: 'Style de Flocage B', img: 'img/206.png'},
+                {title: 'Style de Flocage C', img: 'img/206.png'},
+                {title: 'Style de Flocage D', img: 'img/206.png'}
+            ])">
+                <img src="img/206.png" alt="206" class="vehicle-image">
                 <div class="vehicle-info">
                     <h3 class="vehicle-title">206</h3>
                     <div class="vehicle-price">Déclinaisons disponibles</div>
                     <ul class="vehicle-specs"><li><span>Cliquez pour voir les styles de flocage</span></li></ul>
-                    <span class="btn-action">Voir les déclinaisons</span>
+                    <span class="btn-action">Afficher les flocages</span>
                 </div>
             </div>
 
-            <div class="vehicle-card" onclick="openGallery('Golster 1981', [{title: 'Flocage Rétro Unique', price: '15.000 €', img: 'https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?auto=format&fit=crop&w=600&q=80'}])">
-                <img src="https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?auto=format&fit=crop&w=600&q=80" alt="Golster 1981" class="vehicle-image">
+            <div class="vehicle-card" onclick="openGallery('Golster 1981', [
+                {title: 'Style de Flocage A', img: 'img/golster.png'},
+                {title: 'Style de Flocage B', img: 'img/golster.png'},
+                {title: 'Style de Flocage C', img: 'img/golster.png'},
+                {title: 'Style de Flocage D', img: 'img/golster.png'}
+            ])">
+                <img src="img/golster.png" alt="Golster 1981" class="vehicle-image">
                 <div class="vehicle-info">
                     <h3 class="vehicle-title">Golster 1981</h3>
                     <div class="vehicle-price">Déclinaisons disponibles</div>
                     <ul class="vehicle-specs"><li><span>Cliquez pour voir les styles de flocage</span></li></ul>
-                    <span class="btn-action">Voir les déclinaisons</span>
+                    <span class="btn-action">Afficher les flocages</span>
                 </div>
             </div>
 
-            <div class="vehicle-card" onclick="openGallery('Megane IV', [{title: 'Flocage Catalogue', price: '2.900 €', img: 'https://images.unsplash.com/photo-1617814076367-b759c7d7e738?auto=format&fit=crop&w=600&q=80'}, {title: 'Flocage Personnalisé', price: '3.700 €', img: 'https://images.unsplash.com/photo-1555215695-3004980ad54e?auto=format&fit=crop&w=600&q=80'}])">
-                <img src="https://images.unsplash.com/photo-1617814076367-b759c7d7e738?auto=format&fit=crop&w=600&q=80" alt="Megane IV" class="vehicle-image">
+            <div class="vehicle-card" onclick="openGallery('Megane IV', [
+                {title: 'Style de Flocage A', img: 'img/megane.png'},
+                {title: 'Style de Flocage B', img: 'img/megane.png'},
+                {title: 'Style de Flocage C', img: 'img/megane.png'},
+                {title: 'Style de Flocage D', img: 'img/megane.png'}
+            ])">
+                <img src="img/megane.png" alt="Megane IV" class="vehicle-image">
                 <div class="vehicle-info">
                     <h3 class="vehicle-title">Megane IV</h3>
                     <div class="vehicle-price">Déclinaisons disponibles</div>
                     <ul class="vehicle-specs"><li><span>Cliquez pour voir les styles de flocage</span></li></ul>
-                    <span class="btn-action">Voir les déclinaisons</span>
+                    <span class="btn-action">Afficher les flocages</span>
                 </div>
             </div>
 
-            <div class="vehicle-card" onclick="openGallery('5008', [{title: 'Flocage Catalogue', price: '2.900 €', img: 'https://images.unsplash.com/photo-1555215695-3004980ad54e?auto=format&fit=crop&w=600&q=80'}, {title: 'Flocage Personnalisé', price: '3.700 €', img: 'https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?auto=format&fit=crop&w=600&q=80'}])">
-                <img src="https://images.unsplash.com/photo-1555215695-3004980ad54e?auto=format&fit=crop&w=600&q=80" alt="5008" class="vehicle-image">
+            <div class="vehicle-card" onclick="openGallery('5008', [
+                {title: 'Style de Flocage A', img: 'img/5008.png'},
+                {title: 'Style de Flocage B', img: 'img/5008.png'},
+                {title: 'Style de Flocage C', img: 'img/5008.png'},
+                {title: 'Style de Flocage D', img: 'img/5008.png'}
+            ])">
+                <img src="img/5008.png" alt="5008" class="vehicle-image">
                 <div class="vehicle-info">
                     <h3 class="vehicle-title">5008</h3>
                     <div class="vehicle-price">Déclinaisons disponibles</div>
                     <ul class="vehicle-specs"><li><span>Cliquez pour voir les styles de flocage</span></li></ul>
-                    <span class="btn-action">Voir les déclinaisons</span>
+                    <span class="btn-action">Afficher les flocages</span>
                 </div>
             </div>
 
-            <div class="vehicle-card" onclick="openGallery('Olympia', [{title: 'Flocage Catalogue', price: '2.900 €', img: 'https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?auto=format&fit=crop&w=600&q=80'}])">
-                <img src="https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?auto=format&fit=crop&w=600&q=80" alt="Olympia" class="vehicle-image">
+            <div class="vehicle-card" onclick="openGallery('Olympia', [
+                {title: 'Style de Flocage A', img: 'img/olympia.png'},
+                {title: 'Style de Flocage B', img: 'img/olympia.png'},
+                {title: 'Style de Flocage C', img: 'img/olympia.png'},
+                {title: 'Style de Flocage D', img: 'img/olympia.png'}
+            ])">
+                <img src="img/olympia.png" alt="Olympia" class="vehicle-image">
                 <div class="vehicle-info">
                     <h3 class="vehicle-title">Olympia</h3>
                     <div class="vehicle-price">Déclinaisons disponibles</div>
                     <ul class="vehicle-specs"><li><span>Cliquez pour voir les styles de flocage</span></li></ul>
-                    <span class="btn-action">Voir les déclinaisons</span>
+                    <span class="btn-action">Afficher les flocages</span>
                 </div>
             </div>
 
-            <div class="vehicle-card" onclick="openGallery('Stellar 911', [{title: 'Flocage Unique Édition', price: '15.000 €', img: 'https://images.unsplash.com/photo-1617814076367-b759c7d7e738?auto=format&fit=crop&w=600&q=80'}])">
-                <img src="https://images.unsplash.com/photo-1617814076367-b759c7d7e738?auto=format&fit=crop&w=600&q=80" alt="Stellar 911" class="vehicle-image">
+            <div class="vehicle-card" onclick="openGallery('Stellar 911', [
+                {title: 'Style de Flocage A', img: 'img/stellar.png'},
+                {title: 'Style de Flocage B', img: 'img/stellar.png'},
+                {title: 'Style de Flocage C', img: 'img/stellar.png'},
+                {title: 'Style de Flocage D', img: 'img/stellar.png'}
+            ])">
+                <img src="img/stellar.png" alt="Stellar 911" class="vehicle-image">
                 <div class="vehicle-info">
                     <h3 class="vehicle-title">Stellar 911</h3>
                     <div class="vehicle-price">Déclinaisons disponibles</div>
                     <ul class="vehicle-specs"><li><span>Cliquez pour voir les styles de flocage</span></li></ul>
-                    <span class="btn-action">Voir les déclinaisons</span>
+                    <span class="btn-action">Afficher les flocages</span>
                 </div>
             </div>
+
         </div>
     </div>
 
-    <!-- SECTION 3 : CATALOGUE OCCASIONS -->
+    <!-- SECTION 3 : CATALOGUE OCCASIONS (AVEC L'IMAGE express.png) -->
     <div id="vehicules" class="section-content">
         <h2 class="section-title">Catalogue Occassions</h2>
         <div class="grid">
             <div class="vehicle-card">
-                <img src="https://images.unsplash.com/photo-1555215695-3004980ad54e?auto=format&fit=crop&w=600&q=80" alt="Express" class="vehicle-image">
+                <img src="img/express.png" alt="Express" class="vehicle-image">
                 <div class="vehicle-info">
                     <h3 class="vehicle-title">Express</h3>
                     <div class="vehicle-price">5 800 €</div>
@@ -1234,7 +1291,7 @@
         </div>
     </div>
 
-    <!-- SECTION FAQ (COMPLÈTE AVEC TOUTES LES QUESTIONS) -->
+    <!-- SECTION FAQ -->
     <div id="faq" class="section-content">
         <h2 class="section-title">FAQ - Foire Aux Questions</h2>
         <div class="faq-wrapper">
@@ -1282,13 +1339,38 @@
         <h2 class="section-title">Conditions Générales de Vente et d'Utilisation</h2>
         <div class="cgv-container">
             <h3>1. Objet, Champ d'Application et Acceptation</h3>
-            <p>Les présentes Conditions Générales de Vente et d'Utilisation régissent l'ensemble des relations contractuelles, prestations de services et ventes conclues par le studio <strong>B-Design</strong> auprès de tout client.</p>
+            <p>Les présentes Conditions Générales de Vente et d'Utilisation (ci-après les « CGV ») régissent sans restriction ni réserve l'ensemble des relations contractuelles, prestations de services et ventes conclues par le studio de création et de communication visuelle <strong>B-Design</strong> auprès de tout client professionnel, particulier ou service public.</p>
+            <p>Toute commande passée auprès de B-Design implique l'acceptation pleine, entière et sans réserve des présentes conditions par le Client.</p>
+
             <h3>2. Processus de Commande, Dépôt et Modalités de Paiement Anticipé</h3>
-            <div class="cgv-notice-box">📌 <strong>Rappel :</strong> Le paiement intégral de la prestation commandée doit être effectué en amont, de manière strictement anticipée, avant le lancement effectif des travaux.</div>
+            <div class="cgv-notice-box">
+                📌 <strong>Rappel fondamental :</strong> Le paiement intégral de la prestation commandée doit être effectué en amont, de manière strictement anticipée, avant le lancement effectif des travaux de création ou de réalisation technique.
+            </div>
+            <p>Pour l'ensemble des prestations impliquant une intervention physique sur véhicule (notamment le flocage catalogue, personnalisé ou unique), le Client s'engage à déposer son véhicule au garage ou dans l'atelier désigné par B-Design pour toute la durée requise des travaux.</p>
+
             <h3>3. Achat de Véhicules d'Occasion et Engagement de 3 Jours</h3>
-            <div class="cgv-alert-box">🚨 <strong>Règle des 3 jours :</strong> Toute demande d'achat engage l'acheteur à finaliser la transaction dans un délai maximal de 3 jours sous peine d'un bannissement définitif.</div>
+            <div class="cgv-alert-box">
+                🚨 <strong>Engagement d'achat (Occasions) :</strong> Toute demande d'achat effectuée via le catalogue d'occasions constitue un engagement ferme. L'acheteur s'engage formellement à finaliser l'acquisition et à régler le véhicule dans les <strong>trois (3) jours</strong> suivant la demande. À défaut de respect de ce délai, B-Design se réserve le droit d'annuler la vente et de prononcer le <strong>bannissement définitif</strong> du contrevenant de la plateforme.
+            </div>
+
             <h3>4. Propriété Intellectuelle et Régime Juridique Applicable</h3>
-            <p>Tous les visuels, logos, affiches et flocages créés par B-Design demeurent l'entière propriété intellectuelle exclusive du Studio. Toute reproduction non autorisée entraînera des poursuites judiciaires rigoureuses.</p>
+            <div class="cgv-notice-box">
+                💡 <strong>Exclusivité des créations :</strong> Conformément aux dispositions légales en vigueur, le flocage personnalisé, les chartes graphiques, les logos, les affiches publicitaires ainsi que l'ensemble des éléments visuels, textuels et conceptuels créés et fournis par B-Design demeurent l'entière, pleine et exclusive propriété intellectuelle du Studio.
+            </div>
+            <p>La réalisation ou l'achat d'une prestation de design ou de flocage par le Client ne constitue en aucun cas une cession de droits de propriété intellectuelle. Le Client bénéficie uniquement d'un droit d'usage strictement personnel ou limité au support concerné.</p>
+            
+            <div class="cgv-alert-box">
+                ⚖️ <strong>Sanctions et Poursuites en cas de Violation :</strong> Toute reproduction, représentation, adaptation, exploitation, diffusion ou utilisation non autorisée, partielle ou totale, des œuvres, concepts et designs protégés de B-Design constitue un délit de contrefaçon réprimé par la loi. En cas de violation, <strong>des poursuites judiciaires rigoureuses (civiles et pénales) seront immédiatement engagées contre les contrevenants</strong>.
+            </div>
+
+            <h3>5. Grille Tarifaire, Prestations et Abonnements Web</h3>
+            <p>Les prix applicables aux services de B-Design sont ceux en vigueur au jour de la validation de la commande, exprimés en Euros (€). Nos prestations comprennent les flocages, le branding, la création de sites internet web ainsi que l'hébergement mensuel associé.</p>
+
+            <h3>6. Modifications de Projet, Délais et Responsabilité</h3>
+            <p>B-Design s'engage à mettre en œuvre son expertise artistique et technique pour exécuter les missions confiées avec le plus grand soin. Durant la phase de conception créative, des ajustements mineurs peuvent être intégrés à la demande du Client.</p>
+
+            <h3>7. Règlement des Litiges et Juridiction Compétente</h3>
+            <p>En cas de différend ou de litige relatif à l'interprétation, la validité ou l'exécution des présentes Conditions Générales, les parties s'engagent à rechercher en priorité une solution amiable avant d'entamer toute action judiciaire.</p>
         </div>
     </div>
 
@@ -1351,7 +1433,7 @@
         </div>
     </div>
 
-    <!-- MODALE GALERIE DÉCLINAISONS -->
+    <!-- MODALE GALERIE DÉCLINAISONS (Sans prix ni bouton de commande sous les images) -->
     <div id="galleryModal" class="modal">
         <div class="modal-content wide">
             <span class="close-modal" onclick="closeGallery()">&times;</span>
@@ -1394,7 +1476,7 @@
         </div>
     </footer>
 
-    <!-- SCRIPTS JAVASCRIPT (AVEC EMBEDS DISCORD STRUCTURÉS ET PROPRES) -->
+    <!-- SCRIPTS JAVASCRIPT -->
     <script>
         const DISCORD_WEBHOOK_URL = "https://discord.com/api/webhooks/1546551076453486724/uuQRqs903xLpEhc1BPTbif6ZrWEyVemeWGdihViQweXtYAeuq7PjIv3FUFx-BzTHkruj";
         const DISCORD_BUY_WEBHOOK_URL = "https://discord.com/api/webhooks/1546603016617070719/ZeLcWiCWKkUPGqendCCg2___HiScM2Ps73MZT6Y2aKsHTM0Qmi2G8TD4YONi9dBnGe2i";
@@ -1601,10 +1683,8 @@
                 container.innerHTML += `
                     <div class="gallery-item">
                         <img src="${item.img}" alt="${item.title}">
-                        <div style="padding: 10px;">
-                            <h4>${item.title}</h4>
-                            <p>${item.price}</p>
-                            <a href="mailto:info@b-design.com?subject=Intéressé par ${item.title} sur ${vehicleName}" class="btn-action" style="margin-top: 5px; padding: 8px; text-decoration: none;">Commander</a>
+                        <div style="padding: 15px;">
+                            <h4 style="color:#fff; margin: 0; font-size: 1.05em;">${item.title}</h4>
                         </div>
                     </div>
                 `;
